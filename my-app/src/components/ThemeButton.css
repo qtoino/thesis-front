@@ -1,0 +1,28 @@
+.theme-button {
+    position: fixed;
+    top: 60px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #3b3b3b;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+  }
+  
+  .theme-button:hover {
+    background-color: #0062cc;
+  }
+  
+  .theme-svg {
+    width: 24px;
+    height: 24px;
+  }
