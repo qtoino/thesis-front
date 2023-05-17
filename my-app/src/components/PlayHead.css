@@ -6,3 +6,10 @@
     width: var(--play-head-width);
     background-color: var(--color-highlight);
   }
+
+  /* Hide the Track component when the window width is less than 800 pixels */
+  @media (max-width: 1370px) {
+    .play_head {
+      display: none;
+    }
+  }

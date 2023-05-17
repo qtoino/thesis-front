@@ -28,3 +28,11 @@
       height: 55px;
       padding: 0 5px;
   }
+
+  /* Hide the Track component when the window width is less than 800 pixels */
+  @media (max-width: 1370px) {
+    .track_notes {
+      display: none;
+    }
+    
+  }

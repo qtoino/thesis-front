@@ -4,3 +4,9 @@ canvas {
     background-position: center center;
     padding: 5px;
 }
+
+@media (max-width: 696px) {
+    canvas {
+      display: none;
+    }
+  }

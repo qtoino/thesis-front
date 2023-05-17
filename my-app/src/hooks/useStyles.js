@@ -4,7 +4,7 @@ const defaults = {
     '__app_visibility'     : 'visible',
     '__color_bg'           : 'rgba(80, 80, 80, 0.5)',
     '__color_fg'           : '#f5f5f5',
-    '__color_black'        : '#000',
+    '__color_black'        : '#37e147',
     '__color_dark_grey'    : '#5B5B5B',
     '__color_light_grey'   : '#5d5d5d',
     '__color_highlight'    : '#37e147',

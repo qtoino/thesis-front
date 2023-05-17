@@ -21,6 +21,7 @@ const useSound = (soundFilePath, fftNode) => {
         const player = new Player(soundFilePath).toDestination()
         setPlayer(player)
         //play()
+        
     }, [soundFilePath])
 
     useEffect(() => {

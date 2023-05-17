@@ -75,10 +75,6 @@ html {
   vertical-align: middle;
 }
 
-.spectrogram {
-  transition: transform 0.3s ease-in-out;
-}
-
 .track {
   transition: transform 0.3s ease-in-out;
 }
