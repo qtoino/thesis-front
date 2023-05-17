@@ -86,4 +86,22 @@
   align-items: left;
 }
 
+a:link {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: pink;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+b {
+  text-shadow: 1px 0px 0px #000; /* the textcolor */
+  padding-right: 1px;
+  letter-spacing: 1px;
+  font-weight: bold
+}
 

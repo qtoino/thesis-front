@@ -34,6 +34,14 @@ function Info() {
               <p>Welcome to sample explorer, our experimental platform designed for interacting with sample packs! This user-friendly platform allows everyone, from casual users to professional artists, to explore and choose samples for their music in a visually engaging environment. This guide will help you understand the various features and functionalities available within the platform.</p>
             </div>
             <div className="topic">
+              <h2>-------IMPORTANT: TASKS-------</h2>
+              <p><b>First task:</b> Explore the sample pack with the filters option picking a sound of 3 different classes.</p>
+              <p><b>Second task:</b> Costumize your rhythm pattern as you like with at least 2 different sounds from the original ones.</p>
+              <p><b>Third task:</b> Generate a new sound with the interpolation line from 2 sounds of different categories.</p>
+              <p><b>After completing all the 3 main tasks, you can answer <a href="https://form.jotform.com/frs98/samplexplorer">this questionaire</a></b></p>
+              <h2>-----------------------------------</h2>
+            </div>
+            <div className="topic">
               <h2>Sample Packs</h2>
               <p>Currently, our platform supports exploration of two sample packs: Vengeance Essential House Vol. 1 and Vengeance Analog Drums Vol. 1, which are utilized by the deep learning algorithms operating in the background.</p>
             </div>
