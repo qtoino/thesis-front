@@ -8,7 +8,7 @@
   }
 
   /* Hide the Track component when the window width is less than 800 pixels */
-  @media (max-width: 1370px) {
+  @media (max-width: 1050px) {
     .play_head {
       display: none;
     }

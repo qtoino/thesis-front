@@ -100,7 +100,7 @@ function App() {
             </div>
             <main className="app track">
             
-                <Spectrogram />
+               
                 <div className="app_content">
                     <PlayHead {...playHeadProps} />
                     <TrackList {...trackListProps} />
