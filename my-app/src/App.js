@@ -36,9 +36,9 @@ function App() {
   const lapsedTime = isSequencePlaying ? Math.max(0, playerTime - startTime) : 0
   const totalLapsedTime = pastLapsedTime + lapsedTime
 
-  useEffect(() => {
-    deleteGeneratedSounds();
-  }, []);
+  // useEffect(() => {
+  //   grabGeneratedSounds();
+  // }, []);
 
   const [soundFiles, setSoundFiles] = useState({
     '1': './audio/kick.wav',
@@ -128,6 +128,25 @@ const loadSoundFiles = async () => {
 };
   
 async function deleteGeneratedSounds() {
+    try {
+      const res = await fetch('https://thesis-production-0069.up.railway.app/delete-generated-sounds', {
+        method: 'POST',
+        mode: 'cors',
+      });
+  
+      const data = await res.json();
+  
+      if (data.status !== 'success') {
+        console.error('Error deleting generated sounds:', data.message);
+      }
+    } catch (error) {
+      console.error('Error deleting generated sounds:', error);
+    }
+  }
+
+  
+
+  async function grabGeneratedSounds() {
     try {
       const res = await fetch('https://thesis-production-0069.up.railway.app/delete-generated-sounds', {
         method: 'POST',

@@ -21,6 +21,11 @@
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-align: center;
+  z-index: 1; /* New line: adds a stack order */
+}
+
+.info-button:hover {
+  background-color: #0062cc;
 }
 
 .info-window {

@@ -37,9 +37,9 @@ function AddBall({allBalls, queryClient}) {
         return;
     }
     else {
-        const {name, url} = await generateNewSound(newPosition)
+        const name = await generateNewSound(newPosition, queryClient)
         // console.log(data)
-        const aux = await insertDatabase(newPosition, name, url, queryClient)
+        // const aux = await insertDatabase(newPosition, name, url, queryClient)
     }
   }
 
@@ -61,10 +61,10 @@ function AddBall({allBalls, queryClient}) {
 
 export default memo(AddBall);
 
-const generateNewSound = async (newPosition) => {
+const generateNewSound = async (newPosition, queryClient) => {
   // Send data to the backend via POST
   try{
-      const res = await fetch('https://thesis-production-0069.up.railway.app/addnew', {  // Enter your IP address here
+      const res = await fetch('https://thesis-production-0069.up.railway.app/addnew2', {  // Enter your IP address here
           method: 'POST', 
           headers: {
               Accept: 'application/json',
@@ -82,19 +82,18 @@ const generateNewSound = async (newPosition) => {
       //console.log(data)
 
       // Decode the Base64 encoded audio data back to a Blob
-      const byteCharacters = atob(data.audio_data);
-      const byteNumbers = new Array(byteCharacters.length);
-      for (let i = 0; i < byteCharacters.length; i++) {
-          byteNumbers[i] = byteCharacters.charCodeAt(i);
-      }
-      const byteArray = new Uint8Array(byteNumbers);
-      const audioBlob = new Blob([byteArray], { type: "audio/wav" });
+      // const byteCharacters = atob(data.audio_data);
+      // const byteNumbers = new Array(byteCharacters.length);
+      // for (let i = 0; i < byteCharacters.length; i++) {
+      //     byteNumbers[i] = byteCharacters.charCodeAt(i);
+      // }
+      // const byteArray = new Uint8Array(byteNumbers);
+      // const audioBlob = new Blob([byteArray], { type: "audio/wav" });
 
-      const audioURL = URL.createObjectURL(audioBlob); // Convert the Blob to an Object URL       
-      
+      // const audioURL = URL.createObjectURL(audioBlob); // Convert the Blob to an Object URL       
+      queryClient.invalidateQueries('id', { refetchActive: true })
       return {
           name: audioName,
-          url: audioURL,
       }
   } catch (e) {
       return e;

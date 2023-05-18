@@ -43,6 +43,15 @@
     height: calc(var(--button-pause-play-width)*4);
     padding: 0;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .button_play_pause:hover {
+    background-color: #0062cc;
+  }
+
+  .button_stop:hover {
+    background-color: #0062cc;
   }
 
   .button_icon_path {
