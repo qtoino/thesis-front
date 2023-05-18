@@ -10,7 +10,7 @@ const TrackList = ({ currentStepID, soundFiles, fftNode}) => {
         let soundFilePath = soundFiles[soundFile]
         
         let title = soundFilePath
-        if (soundFilePath.startsWith("my_generated_sound")) {
+        if (soundFilePath.startsWith("GS_")) {
             // Split soundFilePath at ".wav"
             let parts = soundFilePath.split(".wav");
 

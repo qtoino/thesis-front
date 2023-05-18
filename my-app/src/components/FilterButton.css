@@ -7,10 +7,10 @@
     justify-content: center;
   }
   /* Move the filter button to the top of the screen on small screens */
-  @media (max-width: 767px) {
+  @media (max-width: 620px) {
     .filter {
       bottom: unset;
-      top: 12px;
+      top: 65px;
     }
   }
   .filter-container {
@@ -80,7 +80,7 @@
   z-index: 1;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 620px) {
   .filter-menu {
     bottom: unset;
     top: 100%;

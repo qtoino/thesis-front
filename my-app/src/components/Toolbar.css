@@ -1,8 +1,11 @@
-
+  
   .toolbar {
     font-weight: 800;
     display: table;
     align-items: center;
+    position: fixed;
+    right: var(--spacer4);
+    bottom: 55px;
   }
 
   .form_element {
@@ -20,18 +23,34 @@
     vertical-align: middle;
   }
 
+  .form_element2 {
+    background: var(--color-dark-grey);
+    border: 1px solid var(--color-dark-grey);
+    margin-left: calc(var(--spacer) *2);
+    margin-bottom: calc(var(--spacer) / 2);
+    height: calc(var(--form-element-height)*2);
+    box-sizing: border-box;
+    font-weight: 800;
+    font-size: 0.9rem;
+    text-align: center;
+    color: var(--color-fg);
+    display: table-cell;
+    vertical-align: middle;
+  }
+
   .button_play_pause, .button_stop {
     width: var(--button-pause-play-width);
+    height: calc(var(--button-pause-play-width)*4);
     padding: 0;
     cursor: pointer;
   }
 
   .button_icon_path {
-    fill: var(--color-fg);
+    fill: #000000;
   }
 
   .input_bpm {
-    width: var(--input-bpm-width);
+    width: calc(var(--input-bpm-width)*2.6);
   }
 
   .label_bpm {
@@ -81,4 +100,9 @@
   .button_close {
     float: right;
     margin-top: 20px;
+  }
+
+  .super-parent{
+    position: fixed;
+    right: var(--spacer2);
   }

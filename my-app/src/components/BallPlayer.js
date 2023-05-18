@@ -8,7 +8,7 @@ const BallPlayer = ({ audio, path, position, soundFiles, setSoundFiles, play, st
     const [isPlaying, setIsPlaying] = useState(true);
     let audioSrc
     //console.log(soundFiles.current)
-    if (audio.startsWith("my_generated_sound")){
+    if (audio.startsWith("GS_")){
 	    audioSrc = audio + path;
         console.log(path)
     }
