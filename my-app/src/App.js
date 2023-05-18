@@ -121,9 +121,16 @@ export default App
 const loadSoundFiles = async () => {
     // Send data to the backend via POST
     const res = await fetch('https://thesis-production-0069.up.railway.app/all-audio-files', {  // Enter your IP address here
-        method: 'GET', 
+        method: 'POST', 
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
         mode: 'cors',
-    })
+        body: JSON.stringify({
+            refresh:"False"
+        }),
+     })
     return res.json()
 };
   

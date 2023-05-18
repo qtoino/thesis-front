@@ -75,6 +75,10 @@ const Space = ({soundFiles, setSoundFiles, status, data, queryClient}) => {
       setBalls(mapBalls.current)
     }
 
+    function invalidateQuery() {
+      queryClient.invalidateQueries('id', { refetchActive: true })
+    }
+
     function handleClick(state, position) {
 
       if(!state){
@@ -159,6 +163,7 @@ const Space = ({soundFiles, setSoundFiles, status, data, queryClient}) => {
       <AddBall allBalls={allBalls} queryClient={queryClient}/>
       <FilterButton onClick={handleFilter} clearFilters={handleClearFilters} classes={classes.current}/>
       <ThemeButton isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+      <NewBalls getNewBalls={invalidateQuery}/>
       <Info/>
       </>
     )
@@ -176,3 +181,10 @@ const loadFavSoundFiles = async () => {
   return data
 };
 
+function NewBalls({ getNewBalls }) {
+  return (
+    <button onClick={getNewBalls}>
+      Get New Balls
+    </button>
+  );
+}

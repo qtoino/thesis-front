@@ -46,7 +46,7 @@ const setStyles = (totalSteps) => {
     setProperty('--play-head-height', noteHeightFull * defaults.__number_of_tracks - (defaults.__note_margin_vert * 2) + 'px')
     setProperty('--spacer', defaults.__grid_unit * 5 + 'px')
     setProperty('--spacer2', defaults.__track_title_width - 70 + 'px')
-    setProperty('--spacer3', defaults.__track_title_width - 50 + 'px')
+    setProperty('--spacer3', defaults.__track_title_width - 55 + 'px')
     setProperty('--spacer4', defaults.__track_title_width + 12 + 'px')
     setProperty('--spacer5', defaults.__track_title_width - 90 + 'px')
     setProperty('--form-element-height', defaults.__form_element_height + 'px')
