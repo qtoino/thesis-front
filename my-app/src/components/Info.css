@@ -41,7 +41,7 @@
 }
 
 .info-content {
-  background-color: #3b3b3b;
+  background-color: #555555;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -110,3 +110,11 @@ b {
   font-weight: bold
 }
 
+.list-item {
+  font-size: 13px;    /* adjust for larger font size */
+  line-height: 1.5;  /* adjust for more space between lines */
+}
+
+.list {
+  padding-left: 20px; /* adjust for more space on the left */
+}

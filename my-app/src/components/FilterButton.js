@@ -6,7 +6,6 @@ import "./FilterButton.css";
 function FilterButton({ onClick, clearFilters, classes }) {
 
     const [query, setQuery] = useState('');
-    const [showCategories, setShowCategories] = useState(false);
 
     const class_color_map = {
         snares: "#ff355e",
@@ -28,73 +27,37 @@ function FilterButton({ onClick, clearFilters, classes }) {
         generated: "red",
         favorites: "favorites"
     };
-
-    const handleInputChange = (event) => {
-        setQuery(event.target.value);
-        setShowCategories(true);
-    };
-
-    const handleButtonClick = () => {
-        onClick(query);
-        setShowCategories(false);
-    };
+    
 
     const handleCategoryClick = (category) => {
+        
         onClick(class_color_map[category]);
-        setShowCategories(false);
-    };
-
-    const handleCloseClick = () => {
-        setShowCategories(false);
     };
 
     const handleClear = () => {
         clearFilters()
-        setShowCategories(false);
     };
     
   return (
 
     <div className="filter">
       <div className="filter-container">
-        <input
-          type="text"
-          placeholder="Search categories..."
-          value={query}
-          onChange={handleInputChange}
+        <select
+          defaultValue=""
+          onChange={(e) => handleCategoryClick(e.target.value)}
           className="filter-input"
-        />
-        <button className="filterButton" onClick={handleButtonClick}>
-            <FilterIcon className="filter-icon" />
-        </button>
+        >
+          <option value="" disabled hidden>
+            Select a category...
+          </option>
+          {classes.map((category) => (
+            <option key={category} value={category}>
+              {category}
+            </option>
+          ))}
+        </select>
         <button className="buttonClear" onClick={handleClear}>Clear</button>
       </div>
-      {showCategories && (
-      <div className="filter-menu">
-        <div className="filter-menu-header">
-            <span>Categories</span>
-            <button className="closeButton" onClick={handleCloseClick}>
-                <XIcon className="close-icon" />
-            </button>
-        </div>
-        {classes
-            .filter((category) =>
-            category.toLowerCase().includes(query.toLowerCase())
-            )
-            .map((category) => (
-            <div
-                key={category}
-                className="filter-category"
-                onClick={() => handleCategoryClick(category)}
-            >
-                {category}
-            </div>
-            ))}
-            {classes.filter((category) => category.toLowerCase().includes(query.toLowerCase())).length === 0 && (
-            <div className="no-category-message">No category available</div>
-            )}
-        </div>
-       )}
     </div>
   );
 }

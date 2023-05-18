@@ -24,6 +24,8 @@ const TrackList = ({ currentStepID, soundFiles, fftNode}) => {
             title = title.split("/").pop().split(".")[0]
         }
 
+        title = `${trackID + 1}. ${title}`;
+
         return (
             <Track
                 key={trackID}

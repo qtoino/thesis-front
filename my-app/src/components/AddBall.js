@@ -53,7 +53,7 @@ function AddBall({allBalls, queryClient}) {
 
             <input type="number" id="z" name="z" step="any" value={z} onChange={handleZChange} required />
           </div>  
-          <button className="buttonAdd" onClick={handleAddBall}>Add</button>
+          <button className="buttonAdd" onClick={handleAddBall}>Add Ball</button>
         </div>
     </>
   );

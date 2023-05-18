@@ -1,11 +1,11 @@
 import React, {memo, useState, useRef} from 'react';
-import { Line } from '@react-three/drei';
+import { Line, Mesh, Circle } from '@react-three/drei';
 import * as THREE from 'three';
 import Ball from './Ball'
 import useSound from '../hooks/useTone'
 
 const InterpolationLine = ({ ballsSelected, allBalls, soundFiles, setSoundFiles, path, queryClient, handleClick}) => {
-
+    
     const radius = 1.4
 
     async function onClick (event) {

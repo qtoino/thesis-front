@@ -56,16 +56,17 @@ const Space = ({soundFiles, setSoundFiles, status, data, queryClient}) => {
     }, [data]);
     
     async function handleFilter(color) {
+      
       if(color === "favorites"){
         const favBalls = await loadFavSoundFiles()
         // console.log(favBalls.audio_data[0][0])
-        const filteredBalls = balls.filter(ball => favBalls.audio_data.some(audio => audio[0] === ball.props.sound));
+        const filteredBalls = mapBalls.current.filter(ball => favBalls.audio_data.some(audio => audio[0] === ball.props.sound));
 
       
         setBalls(filteredBalls);
       }
       else{
-        const filteredBalls = balls.filter(ball => ball.props.color === color)
+        const filteredBalls = mapBalls.current.filter(ball => ball.props.color === color)
         setBalls(filteredBalls);
       }
     }
@@ -163,7 +164,7 @@ const Space = ({soundFiles, setSoundFiles, status, data, queryClient}) => {
       <AddBall allBalls={allBalls} queryClient={queryClient}/>
       <FilterButton onClick={handleFilter} clearFilters={handleClearFilters} classes={classes.current}/>
       <ThemeButton isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
-      <NewBalls getNewBalls={invalidateQuery}/>
+      {/* <NewBalls getNewBalls={invalidateQuery}/> */}
       <Info/>
       </>
     )
