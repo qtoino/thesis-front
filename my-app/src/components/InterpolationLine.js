@@ -25,7 +25,7 @@ const InterpolationLine = ({ ballsSelected, allBalls, soundFiles, setSoundFiles,
         else {
             //console.log(clickedPosition)
             //console.log(ballsSelected)
-            const {name, ulr} = await generateNewSound(clickedPosition, ballsSelected, queryClient)
+            const {name, url} = await generateNewSound(clickedPosition, ballsSelected, queryClient)
             
             const aux = await insertDatabase(clickedPosition, name, url, queryClient)
         }
