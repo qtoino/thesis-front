@@ -25,9 +25,9 @@ const InterpolationLine = ({ ballsSelected, allBalls, soundFiles, setSoundFiles,
         else {
             //console.log(clickedPosition)
             //console.log(ballsSelected)
-            const name = await generateNewSound(clickedPosition, ballsSelected, queryClient)
+            const {name, ulr} = await generateNewSound(clickedPosition, ballsSelected, queryClient)
             
-            // const aux = await insertDatabase(clickedPosition, name, url, queryClient)
+            const aux = await insertDatabase(clickedPosition, name, url, queryClient)
         }
     }
     
@@ -50,7 +50,7 @@ export default memo(InterpolationLine);
 const generateNewSound = async (clickedPosition, ballsSelected, queryClient) => {
     // Send data to the backend via POST
     try{
-        const res = await fetch('https://thesis-production-0069.up.railway.app/interpole2', {  // Enter your IP address here
+        const res = await fetch('https://thesis-production-0069.up.railway.app/interpole', {  // Enter your IP address here
             method: 'POST', 
             headers: {
                 Accept: 'application/json',
@@ -75,19 +75,19 @@ const generateNewSound = async (clickedPosition, ballsSelected, queryClient) => 
         const audioName = data.audio_name;
         //console.log(data)
   
-        // // Decode the Base64 encoded audio data back to a Blob
-        // const byteCharacters = atob(data.audio_data);
-        // const byteNumbers = new Array(byteCharacters.length);
-        // for (let i = 0; i < byteCharacters.length; i++) {
-        //     byteNumbers[i] = byteCharacters.charCodeAt(i);
-        // }
-        // const byteArray = new Uint8Array(byteNumbers);
-        // const audioBlob = new Blob([byteArray], { type: "audio/wav" });
+        // Decode the Base64 encoded audio data back to a Blob
+        const byteCharacters = atob(data.audio_data);
+        const byteNumbers = new Array(byteCharacters.length);
+        for (let i = 0; i < byteCharacters.length; i++) {
+            byteNumbers[i] = byteCharacters.charCodeAt(i);
+        }
+        const byteArray = new Uint8Array(byteNumbers);
+        const audioBlob = new Blob([byteArray], { type: "audio/wav" });
   
-        // const audioURL = URL.createObjectURL(audioBlob); // Convert the Blob to an Object URL       
-        queryClient.invalidateQueries('id', { refetchActive: true })
+        const audioURL = URL.createObjectURL(audioBlob); // Convert the Blob to an Object URL       
+        // queryClient.invalidateQueries('id', { refetchActive: true })
         return {
-            name: audioName,
+            name: audioName, url: audioURL
         }
     } catch (e) {
         console.log(e)
