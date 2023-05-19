@@ -31,8 +31,8 @@ function Info() {
           <div className="info-content">
             <h1>SampleXplorer</h1>
             <div className="topic">
-              <p>Welcome to SampleXplorer, our experimental platform designed for interacting with sound packs! This user-friendly platform allows everyone, from casual users to professional artists, to explore and choose samples for their music in a visually engaging environment. This guide will help you understand the various features and functionalities available within the platform.</p>
-              <p>&#9940; To get a better experience, we advise you to use <b>Chrome</b> web browser. &#9940;</p>
+              <p>Welcome to SampleXplorer, our experimental platform designed for interacting with sound packs! This user-friendly platform allows everyone, from casual users to professional artists, to explore, choose and share samples for their music in a visually engaging environment. This guide will help you understand the various features and functionalities available within the platform.</p>
+              <p>&#9940; Because the website uses a lot of audio files, it is a bit heavy and sometimes it breaks. In the beggining it might be a little slower or even brake but in anycase, just reload the page. To get a better experience, we advise you to use <b>Chrome</b> web browser. &#9940;</p>
               <p>&#9940; <b>READ THIS MANUAL CAREFULLY AND PLEASE ANSWER THE EVALUATION FORM BELOW.</b> &#9940;</p>
             </div>
             <div className="topic">
@@ -105,7 +105,7 @@ function Info() {
               </div>
               <br></br>
               <br></br>
-              <p>On the bottom-right of the canvas, the <b>Add Ball</b> button enables users to place a new ball at near the desired position. Because we use a Deep Learning algorythm, the ball is not generated in the exact position that you input.</p>
+              <p>On the bottom-right of the canvas, the <b>Add Ball</b> button enables users to place a new ball at near the desired position. Because we use a Deep Learning algorithm, the ball is not generated in the exact position that you input.</p>
               <div style={{display: "flex", justifyContent: "space-evenly"}}>
                   <img src="./images/addball.png" style={{width: "55%", height: "auto"}}/>
               </div>
