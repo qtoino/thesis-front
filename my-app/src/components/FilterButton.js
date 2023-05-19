@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { ReactComponent as FilterIcon } from "../assets/magnifying-glass.svg";
-import { ReactComponent as XIcon } from "../assets/x.svg";
+// import { ReactComponent as XIcon } from "../assets/x.svg";
 import "./FilterButton.css";
 
 function FilterButton({ onClick, clearFilters, classes }) {
