@@ -115,7 +115,7 @@ function Info() {
             <div className="topic">
               <h2>Step Sequencer</h2>
               <p>Located at the bottom section of the interface, is the step sequencer. 
-              You can costumize the rhythmic pattern as you wish by clicking the rectangles. The sequencer includes controls to play/stop the sequence, adjust the BPM, and load preset rhythms. You can hear the sounds that you selected previously in the 1-4 ball options. On the bottom-right is the <b>Theme</b> and <b>Instructions</b> buttons that are responsible for toggling the background color and opening the current instructions panel.</p>
+              You can costumize the rhythmic pattern as you wish by clicking the rectangles and the volume of the track by moving the slider next to it. The sequencer includes controls to play/stop the sequence, adjust the BPM, and load preset rhythms. You can hear the sounds that you selected previously in the 1-4 ball options. On the bottom-right is the <b>Theme</b> and <b>Instructions</b> buttons that are responsible for toggling the background color and opening the current instructions panel.</p>
               <div style={{display: "flex", justifyContent: "space-evenly"}}>
                   <img src="./images/sequencer.png" style={{width: "100%", height: "auto"}}/>
               </div>
