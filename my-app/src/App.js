@@ -51,7 +51,7 @@ function App() {
 
   const queryClient = useQueryClient()
     //read from database
-  const {data, status} = useQuery('id', loadSoundFiles)
+  // const {data, status} = useQuery('id', loadSoundFiles)
   
   useEffect(() => {
       if (isSequencePlaying) {
@@ -85,8 +85,8 @@ function App() {
   const spaceProps = {
       soundFiles,
       setSoundFiles,
-      status,
-      data,
+      // status,
+      // data,
       queryClient
   }
 
@@ -118,14 +118,14 @@ function App() {
 
 export default App
 
-const loadSoundFiles = async () => {
-  // Send data to the backend via POST
-  const res = await fetch('https://thesis-production-0069.up.railway.app/all-audio-files', {  // Enter your IP address here
-      method: 'GET', 
-      mode: 'cors',
-  })
-  return res.json()
-};
+// const loadSoundFiles = async () => {
+//   // Send data to the backend via POST
+//   const res = await fetch('https://thesis-production-0069.up.railway.app/all-audio-files', {  // Enter your IP address here
+//       method: 'GET', 
+//       mode: 'cors',
+//   })
+//   return res.json()
+// };
   
 async function deleteGeneratedSounds() {
     try {
@@ -148,8 +148,8 @@ async function deleteGeneratedSounds() {
 
   async function grabGeneratedSounds() {
     try {
-      const res = await fetch('https://thesis-production-0069.up.railway.app/delete-generated-sounds', {
-        method: 'POST',
+      const res = await fetch('https://thesis-production-0069.up.railway.app/grab-generated-sounds', {
+        method: 'GET',
         mode: 'cors',
       });
   

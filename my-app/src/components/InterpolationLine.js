@@ -4,7 +4,7 @@ import * as THREE from 'three';
 import Ball from './Ball'
 import useSound from '../hooks/useTone'
 
-const InterpolationLine = ({ ballsSelected, allBalls, soundFiles, setSoundFiles, path, queryClient, handleClick}) => {
+const InterpolationLine = ({ ballsSelected, allBalls, queryClient, generatedUrlsRef}) => {
     
     const radius = 1.4
 
@@ -27,7 +27,16 @@ const InterpolationLine = ({ ballsSelected, allBalls, soundFiles, setSoundFiles,
             //console.log(ballsSelected)
             const {name, url} = await generateNewSound(clickedPosition, ballsSelected, queryClient)
             
-            const aux = await insertDatabase(clickedPosition, name, url, queryClient)
+            const sound = {
+                name: name,
+                url: url
+            }
+
+            // Add the new URL to the ref
+            generatedUrlsRef.current.push(sound);
+            queryClient.invalidateQueries('id', { refetchActive: true })
+            console.log(generatedUrlsRef.current)
+            // const aux = await insertDatabase(clickedPosition, name, url, queryClient)
         }
     }
     

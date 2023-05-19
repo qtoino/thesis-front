@@ -3,6 +3,7 @@ import React, {useState, useEffect, useRef, memo} from 'react'
 import { useFrame, Canvas } from '@react-three/fiber'
 import { OrbitControls, Stats, CameraControls } from '@react-three/drei';
 import { Html } from '@react-three/drei';
+import { useQuery, useQueryClient } from 'react-query';
 import { useControls, button, buttonGroup, folder } from 'leva'
 import Ball from './Ball'
 import InterpolationLine from './InterpolationLine'
@@ -13,7 +14,7 @@ import Info from './Info'
 
 const { DEG2RAD } = THREE.MathUtils
 
-const Space = ({soundFiles, setSoundFiles, status, data, queryClient}) => {
+const Space = ({soundFiles, setSoundFiles, queryClient}) => {
     console.log("and again")
     const cameraControlsRef = useRef()
 
@@ -24,36 +25,71 @@ const Space = ({soundFiles, setSoundFiles, status, data, queryClient}) => {
     const [ballsSelected, setballsSelected] = useState([])
     
     const allBalls = useRef([])
+
+    const generatedUrlsRef = useRef([]);
     
     const classes = useRef(["favorites"])
 
+    const {data, status} = useQuery('id', loadSoundFiles)
+
     useEffect(() => {
-      if (status === 'loading'){
-        console.log("Loading")
-      }
-      else if (status === 'error'){
-        console.log("error")
-      }
-      else{
-        console.log("reloaded")
-        const mappedBalls = data.audio_data.map(function(object){
+      (async function() {
+        if (status === 'loading'){
+          console.log("Loading")
+        }
+        else if (status === 'error'){
+          console.log("error")
+        }
+        else{
+          console.log("reloaded")
+          
+          let mappedBalls = [];
+          
+          for (const object of data.audio_data) {
             if (!object.x) {
-              return null; // skip if x is not defined
+              continue; // skip if x is not defined
             }
+            
             allBalls.current = [...allBalls.current, [object.x, object.y, object.z]] // add the position array to allBalls
+    
             // push the color to the classes array only if it hasn't been added already
-           
             if (!classes.current.includes(object.class)) {
               classes.current = [...classes.current, object.class];
             }
-
-            return <Ball position={[object.x, object.y, object.z]} color={object.color} sound={object.name} path={object.path} favorite={object.favorite} soundFiles={soundFiles} setSoundFiles={setSoundFiles} key={object.id} queryClient={queryClient} onClick={handleClick}/>;
-        }).filter(Boolean);
-
-        setBalls(mappedBalls);
-        mapBalls.current = mappedBalls;
-      }
-    }, [data]);
+    
+            let path2audio;
+            console.log("ENTREI")
+            if (object.name.startsWith('GS')) {
+              console.log(object.name)
+              const sound = generatedUrlsRef.current.find(sound => sound.name === object.name);
+              
+              if (sound){
+                path2audio = sound.url
+              }
+              else{
+                const {name, url} = await getURLleft(object.name)
+                // Add the new URL to the ref
+                const sound_aux = {
+                  name: name,
+                  url: url
+                }
+                generatedUrlsRef.current.push(sound_aux);
+                path2audio = url
+              }
+            } else {
+              path2audio = object.path
+            }
+    
+            const ball = <Ball position={[object.x, object.y, object.z]} color={object.color} sound={object.name} path={path2audio} favorite={object.favorite} soundFiles={soundFiles} setSoundFiles={setSoundFiles} key={object.id} queryClient={queryClient} onClick={handleClick}/>;
+            
+            mappedBalls.push(ball);
+          }
+          
+          setBalls(mappedBalls);
+          mapBalls.current = mappedBalls;
+        }
+      })(); // immediately invoke async function
+    }, [data, status, getURLleft]);
     
     async function handleFilter(color) {
       
@@ -158,10 +194,10 @@ const Space = ({soundFiles, setSoundFiles, status, data, queryClient}) => {
           ref={cameraControlsRef}
         />
         {balls}
-        <InterpolationLine ballsSelected={ballsSelected} allBalls={allBalls} soundFiles={soundFiles} setSoundFiles={setSoundFiles} path={"random"} queryClient={queryClient} handleClick={handleClick}/>
+        <InterpolationLine ballsSelected={ballsSelected} allBalls={allBalls} queryClient={queryClient} generatedUrlsRef={generatedUrlsRef}/>
         <Stats />
       </Canvas>
-      <AddBall allBalls={allBalls} queryClient={queryClient}/>
+      <AddBall allBalls={allBalls} queryClient={queryClient} generatedUrlsRef={generatedUrlsRef}/>
       <FilterButton onClick={handleFilter} clearFilters={handleClearFilters} classes={classes.current}/>
       <ThemeButton isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
       {/* <NewBalls getNewBalls={invalidateQuery}/> */}
@@ -171,6 +207,15 @@ const Space = ({soundFiles, setSoundFiles, status, data, queryClient}) => {
 }
 
 export default Space
+
+const loadSoundFiles = async () => {
+  // Send data to the backend via POST
+  const res = await fetch('https://thesis-production-0069.up.railway.app/all-audio-files', {  // Enter your IP address here
+      method: 'GET', 
+      mode: 'cors',
+  })
+  return res.json()
+};
 
 const loadFavSoundFiles = async () => {
   // Send data to the backend via POST
@@ -189,3 +234,43 @@ function NewBalls({ getNewBalls }) {
     </button>
   );
 }
+
+const getURLleft = async (soundname) => {
+  // Send data to the backend via POST
+  try{
+      const res = await fetch('https://thesis-production-0069.up.railway.app/getURL', {  // Enter your IP address here
+          method: 'POST', 
+          headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+          },
+          mode: 'cors',
+          body: JSON.stringify({
+              sound:soundname,
+          }),
+      })
+      // const data = await res.blob();
+      const data = await res.json();
+      //console.log(data)
+      const audioName = data.audio_name;
+      //console.log(data)
+
+      // Decode the Base64 encoded audio data back to a Blob
+      const byteCharacters = atob(data.audio_data);
+      const byteNumbers = new Array(byteCharacters.length);
+      for (let i = 0; i < byteCharacters.length; i++) {
+          byteNumbers[i] = byteCharacters.charCodeAt(i);
+      }
+      const byteArray = new Uint8Array(byteNumbers);
+      const audioBlob = new Blob([byteArray], { type: "audio/wav" });
+
+      const audioURL = URL.createObjectURL(audioBlob); // Convert the Blob to an Object URL       
+      // queryClient.invalidateQueries('id', { refetchActive: true })
+      return {
+          name: audioName, url: audioURL
+      }
+  } catch (e) {
+      console.log(e)
+      return e;
+  } 
+};

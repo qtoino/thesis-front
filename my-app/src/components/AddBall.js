@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import Ball from './Ball'
 import "./AddBall.css"
 
-function AddBall({allBalls, queryClient}) {
+function AddBall({allBalls, queryClient, generatedUrlsRef}) {
   const [x, setX] = useState(0);
   const [y, setY] = useState(0);
   const [z, setZ] = useState(0);
@@ -39,7 +39,16 @@ function AddBall({allBalls, queryClient}) {
     else {
         const {name, url} = await generateNewSound(newPosition, queryClient)
         // console.log(data)
-        const aux = await insertDatabase(newPosition, name, url, queryClient)
+        
+        const sound = {
+          name: name,
+          url: url
+        }
+
+        // Add the new URL to the ref
+        generatedUrlsRef.current.push(sound);
+        queryClient.invalidateQueries('id', { refetchActive: true })
+        // const aux = await insertDatabase(newPosition, name, url, queryClient)
     }
   }
 
