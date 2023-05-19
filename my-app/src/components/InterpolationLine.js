@@ -4,12 +4,18 @@ import * as THREE from 'three';
 import Ball from './Ball'
 import useSound from '../hooks/useTone'
 
-const InterpolationLine = ({ ballsSelected, allBalls, queryClient, generatedUrlsRef}) => {
+const InterpolationLine = ({ ballsSelected, allBalls, queryClient, generatedUrlsRef, isLoading, setIsLoading}) => {
     
     const radius = 1.4
 
     async function onClick (event) {
 
+        // Block the function if isLoading is true
+        if (isLoading) {
+            console.log("wait for the generated audio")
+            return;
+        }
+        
         const clickedPosition = [event.point.x, event.point.y, event.point.z];
 
         const distances = allBalls.current.map(p => event.point.distanceTo(new THREE.Vector3(...p)));
@@ -25,7 +31,7 @@ const InterpolationLine = ({ ballsSelected, allBalls, queryClient, generatedUrls
         else {
             //console.log(clickedPosition)
             //console.log(ballsSelected)
-            const {name, url} = await generateNewSound(clickedPosition, ballsSelected, queryClient)
+            const {name, url} = await generateNewSound(clickedPosition, ballsSelected, queryClient, setIsLoading)
             
             const sound = {
                 name: name,
@@ -56,8 +62,9 @@ const InterpolationLine = ({ ballsSelected, allBalls, queryClient, generatedUrls
 
 export default memo(InterpolationLine);
 
-const generateNewSound = async (clickedPosition, ballsSelected, queryClient) => {
+const generateNewSound = async (clickedPosition, ballsSelected, queryClient, setIsLoading) => {
     // Send data to the backend via POST
+    setIsLoading(true);
     try{
         const res = await fetch('https://thesis-production-0069.up.railway.app/interpole', {  // Enter your IP address here
             method: 'POST', 

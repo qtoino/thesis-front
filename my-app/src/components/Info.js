@@ -63,7 +63,7 @@ function Info() {
             </div>
             <div className="topic">
               <h2>BIL (Big Interpolation Line)</h2>
-              <p>When two balls are selected, an interpolation line is formed between them. By clicking on the line, you can generate a new sound mixing the two selected sounds. Don't worry if the new sound is not generated right away, be patient. &#129397; </p>
+              <p>When two balls are selected, an interpolation line is formed between them. By clicking on the line, you can generate a new sound mixing the two selected sounds. Don't worry if don't see the new sound right away, either it's being generated or it's just behind BIL. Try to rotate the camera to see if it's there. &#128513; </p>
               <div style={{display: "flex", justifyContent: "space-evenly"}}>
                   <img src="./images/bil.png" style={{width: "75%", height: "auto"}}/>
               </div>
@@ -126,7 +126,7 @@ function Info() {
               <p><b>2th task:</b> Generate a new sound with BIL.</p>
               <p><b>3rd task:</b> Generate a new sound with Add Ball Button.</p>
               
-              <p><b>4th task:</b> Try different rhythmic pattern.</p>
+              <p><b>4th task:</b> Try a different rhythmic pattern.</p>
               <p><b>5th task:</b> Costumize your rhythm pattern as you like. Add at least 2 different ball sounds to the step sequencer.</p>
               <p><b>After completing all the 5 main tasks, please answer <a href="https://form.jotform.com/frs98/samplexplorer">this questionaire</a>.</b></p>
               <h2>-----------------------------------</h2>

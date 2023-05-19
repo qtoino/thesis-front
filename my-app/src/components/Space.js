@@ -30,6 +30,8 @@ const Space = ({soundFiles, setSoundFiles, queryClient}) => {
     
     const classes = useRef(["favorites"])
 
+    const [isLoading, setIsLoading] = useState(true);
+
     const {data, status} = useQuery('id', loadSoundFiles)
 
     useEffect(() => {
@@ -58,9 +60,9 @@ const Space = ({soundFiles, setSoundFiles, queryClient}) => {
             }
     
             let path2audio;
-            console.log("ENTREI")
+            
             if (object.name.startsWith('GS')) {
-              console.log(object.name)
+              // console.log(object.name)
               const sound = generatedUrlsRef.current.find(sound => sound.name === object.name);
               
               if (sound){
@@ -73,6 +75,7 @@ const Space = ({soundFiles, setSoundFiles, queryClient}) => {
                   name: name,
                   url: url
                 }
+                // console.log(sound_aux)
                 generatedUrlsRef.current.push(sound_aux);
                 path2audio = url
               }
@@ -87,6 +90,7 @@ const Space = ({soundFiles, setSoundFiles, queryClient}) => {
           
           setBalls(mappedBalls);
           mapBalls.current = mappedBalls;
+          setIsLoading(false)
         }
       })(); // immediately invoke async function
     }, [data, status, getURLleft]);
@@ -194,14 +198,32 @@ const Space = ({soundFiles, setSoundFiles, queryClient}) => {
           ref={cameraControlsRef}
         />
         {balls}
-        <InterpolationLine ballsSelected={ballsSelected} allBalls={allBalls} queryClient={queryClient} generatedUrlsRef={generatedUrlsRef}/>
+        <InterpolationLine ballsSelected={ballsSelected} allBalls={allBalls} queryClient={queryClient} generatedUrlsRef={generatedUrlsRef} isLoading={isLoading} setIsLoading={setIsLoading}/>
         <Stats />
       </Canvas>
-      <AddBall allBalls={allBalls} queryClient={queryClient} generatedUrlsRef={generatedUrlsRef}/>
+      <AddBall allBalls={allBalls} queryClient={queryClient} generatedUrlsRef={generatedUrlsRef} isLoading={isLoading} setIsLoading={setIsLoading}/>
       <FilterButton onClick={handleFilter} clearFilters={handleClearFilters} classes={classes.current}/>
       <ThemeButton isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
       {/* <NewBalls getNewBalls={invalidateQuery}/> */}
       <Info/>
+      {isLoading && (
+      <div 
+        style={{
+          position: 'fixed', 
+          top: '50%', 
+          left: '50%', 
+          transform: 'translate(-50%, -50%)', 
+          zIndex: 100, 
+          background: 'rgba(0, 0, 0, 0.8)', 
+          color: 'white', 
+          padding: '20px', 
+          borderRadius: '10px'
+        }}
+      >
+        Loading wav files...
+      </div>
+      )}
+
       </>
     )
 }

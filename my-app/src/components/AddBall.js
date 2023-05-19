@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import Ball from './Ball'
 import "./AddBall.css"
 
-function AddBall({allBalls, queryClient, generatedUrlsRef}) {
+function AddBall({allBalls, queryClient, generatedUrlsRef, isLoading, setIsLoading}) {
   const [x, setX] = useState(0);
   const [y, setY] = useState(0);
   const [z, setZ] = useState(0);
@@ -22,6 +22,12 @@ function AddBall({allBalls, queryClient, generatedUrlsRef}) {
 
   async function handleAddBall(){
 
+    // Block the function if isLoading is true
+    if (isLoading) {
+      console.log("wait for the generated audio")
+      return;
+    }
+    
     const radius = 1.4
 
     const point = new THREE.Vector3(...[x, y, z])
@@ -37,7 +43,7 @@ function AddBall({allBalls, queryClient, generatedUrlsRef}) {
         return;
     }
     else {
-        const {name, url} = await generateNewSound(newPosition, queryClient)
+        const {name, url} = await generateNewSound(newPosition, queryClient, setIsLoading)
         // console.log(data)
         
         const sound = {
@@ -70,8 +76,9 @@ function AddBall({allBalls, queryClient, generatedUrlsRef}) {
 
 export default memo(AddBall);
 
-const generateNewSound = async (newPosition, queryClient) => {
+const generateNewSound = async (newPosition, queryClient, setIsLoading) => {
   // Send data to the backend via POST
+  setIsLoading(true)
   try{
       const res = await fetch('https://thesis-production-0069.up.railway.app/addnew', {  // Enter your IP address here
           method: 'POST', 
