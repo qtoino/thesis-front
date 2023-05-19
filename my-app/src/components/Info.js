@@ -105,7 +105,7 @@ function Info() {
               </div>
               <br></br>
               <br></br>
-              <p>On the bottom-right of the canvas, the <b>Add Ball</b> button enables users to place a new ball at the desired position.</p>
+              <p>On the bottom-right of the canvas, the <b>Add Ball</b> button enables users to place a new ball at near the desired position. Because we use a Deep Learning algorythm, the ball is not generated in the exact position that you input.</p>
               <div style={{display: "flex", justifyContent: "space-evenly"}}>
                   <img src="./images/addball.png" style={{width: "55%", height: "auto"}}/>
               </div>
