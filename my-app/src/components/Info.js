@@ -31,8 +31,8 @@ function Info() {
           <div className="info-content">
             <h1>SampleXplorer</h1>
             <div className="topic">
-              <p>Welcome to SampleXplorer, our experimental platform designed for interacting with sound packs! This user-friendly platform allows everyone, from casual users to professional artists, to explore, choose and share samples for their music in a visually engaging environment. This guide will help you understand the various features and functionalities available within the platform.</p>
-              <p>&#9940; Because the website uses a lot of audio files, it is a bit heavy and sometimes it breaks. In the beggining it might be a little slower or even brake but in anycase, just reload the page. To get a better experience, we advise you to use <b>Chrome</b> web browser. &#9940;</p>
+              <p>Welcome to SampleXplorer, our experimental platform designed for interacting with sound packs! This user-friendly platform allows everyone, from casual users to professional artists, to explore, choose and generate samples for their music in a visually engaging environment. This guide will help you understand the various features and functionalities available within the platform.</p>
+              <p>&#9940; Because the website uses a lot of audio files, it is a bit heavy and sometimes it breaks. If the "Loading audio files" message takes more than 30 seconds to disappear, try refreshing the page. In the beggining it might be a little slower or even brake but in anycase, just reload the page. To get a better experience, we advise you to use <b>Chrome</b> web browser. &#9940;</p>
               <p>&#9940; <b>READ THIS MANUAL CAREFULLY AND PLEASE ANSWER THE EVALUATION FORM BELOW.</b> &#9940;</p>
             </div>
             <div className="topic">
@@ -63,7 +63,7 @@ function Info() {
             </div>
             <div className="topic">
               <h2>BIL (Big Interpolation Line)</h2>
-              <p>When two balls are selected, an interpolation line is formed between them. By clicking on the line, you can generate a new sound mixing the two selected sounds. Don't worry if don't see the new sound right away, either it's being generated or it's just behind BIL. Try to rotate the camera to see if it's there. &#128513; </p>
+              <p>When two balls are selected, an interpolation line is formed between them. By clicking on the line, you can generate a new ball/sound mixing the two selected sounds. Don't worry if don't see the new sound right away, either it's being generated or it's just behind BIL. Try to rotate the camera to see if it's there. &#128513; </p>
               <div style={{display: "flex", justifyContent: "space-evenly"}}>
                   <img src="./images/bil.png" style={{width: "75%", height: "auto"}}/>
               </div>
@@ -71,6 +71,7 @@ function Info() {
             <div className="topic">
               <h2>Camera Controls</h2>
               <div className="topic-wrapper">
+                <p>The camera controls are simple but you need to get used to them so try to mess with them in the beggining.</p>
                 <p>
                     <Left className="topic-svg"/> 
                     Left click and drag: Rotate the camera around the target point.</p>
@@ -122,10 +123,9 @@ function Info() {
             </div>
             <div className="topic">
               <h2>-------TRY THESE TASKS:--------</h2>
-              <p><b>1st task:</b>  Use the Categories dropdown menu to pick at least 2 different categories of sounds.</p>
+              <p><b>1st task:</b> Use the Categories dropdown menu to pick at least 2 different categories of sounds.</p>
               <p><b>2th task:</b> Generate a new sound with BIL.</p>
               <p><b>3rd task:</b> Generate a new sound with Add Ball Button.</p>
-              
               <p><b>4th task:</b> Try a different rhythmic pattern.</p>
               <p><b>5th task:</b> Costumize your rhythm pattern as you like. Add at least 2 different ball sounds to the step sequencer.</p>
               <p><b>After completing all the 5 main tasks, please answer <a href="https://form.jotform.com/frs98/samplexplorer">this questionaire</a>.</b></p>
