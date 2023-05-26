@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import React, {useState, useEffect, useRef, memo} from 'react'
 import { useFrame, Canvas } from '@react-three/fiber'
-import { OrbitControls, Stats, CameraControls } from '@react-three/drei';
+import { OrbitControls, Stats, CameraControls, GridHelper} from '@react-three/drei';
 import { Html } from '@react-three/drei';
 import { useQuery, useQueryClient } from 'react-query';
 import { useControls, button, buttonGroup, folder } from 'leva'
@@ -11,12 +11,19 @@ import AddBall from './AddBall'
 import FilterButton from './FilterButton'
 import ThemeButton from './ThemeButton'
 import Info from './Info'
+import Grid from './Grid'
 
 const { DEG2RAD } = THREE.MathUtils
 
 const Space = ({soundFiles, setSoundFiles, queryClient}) => {
     console.log("and again")
     const cameraControlsRef = useRef()
+
+    const [gridVisible, setGridVisible] = useState(false);
+
+    const toggleGrid = () => {
+      setGridVisible(!gridVisible);
+    };
 
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [balls, setBalls] = useState(null)
@@ -33,6 +40,60 @@ const Space = ({soundFiles, setSoundFiles, queryClient}) => {
     const [isLoading, setIsLoading] = useState(true);
 
     const {data, status} = useQuery('id', loadSoundFiles)
+
+
+    useEffect(() => {
+      // Add event listeners to the document to listen for keydown events
+      document.addEventListener('keydown', handleKeyDown);
+      
+      // Clean up the event listener when the component unmounts
+      return () => {
+        document.removeEventListener('keydown', handleKeyDown);
+      };
+    }, []);
+
+    
+  
+    function handleKeyDown(event) {
+      // Check the key code of the pressed key
+      switch (event.code) {
+        case 'ArrowRight':
+          cameraControlsRef.current?.truck(5, 0, true); // Move right
+          break;
+        case 'ArrowUp':
+          cameraControlsRef.current?.truck(0, -5, true); // Move up
+          break;
+        case 'ArrowDown':
+          cameraControlsRef.current?.truck(0, 5, true); // Move down
+          break;
+        case 'ArrowLeft':
+          cameraControlsRef.current?.truck(-5, 0, true); // Move left
+          break;
+        case 'KeyA':
+          cameraControlsRef.current?.rotate(-5 * DEG2RAD, 0, true); // Rotate left
+          break;
+        case 'KeyD':
+          cameraControlsRef.current?.rotate(5 * DEG2RAD, 0, true); // Rotate right
+          break;
+        case 'KeyW':
+          cameraControlsRef.current?.rotate(0, -5 * DEG2RAD, true); // Rotate up
+          break;
+        case 'KeyS':
+          cameraControlsRef.current?.rotate(0, 5 * DEG2RAD, true); // Rotate down
+          break;
+        case 'KeyS':
+          cameraControlsRef.current?.rotate(0, 5 * DEG2RAD, true); // Rotate down
+          break;
+        case 'KeyS':
+          cameraControlsRef.current?.rotate(0, 5 * DEG2RAD, true); // Rotate down
+          break;
+        // Add more cases for other keys if needed
+        default:
+          break;
+      }
+    }
+
+    
 
     useEffect(() => {
       (async function() {
@@ -155,18 +216,19 @@ const Space = ({soundFiles, setSoundFiles, queryClient}) => {
         }
       }),
       truckGrp: buttonGroup({
-        label: 'truck',
+        label: 'translate',
         opts: {
-          '(1,0)': () => cameraControlsRef.current?.truck(5, 0, true),
-          '(0,1)': () => cameraControlsRef.current?.truck(0, 5, true),
-          '(-1,-1)': () => cameraControlsRef.current?.truck(-5, -5, true)
+          'RIGHT': () => cameraControlsRef.current?.truck(5, 0, true),
+          'UP': () => cameraControlsRef.current?.truck(0, -5, true),
+          'DOWN': () => cameraControlsRef.current?.truck(0, 5, true),
+          'LEFT': () => cameraControlsRef.current?.truck(-5, 0, true)
         }
       }),
       dollyGrp: buttonGroup({
-        label: 'dolly',
+        label: 'zoom',
         opts: {
-          '1': () => cameraControlsRef.current?.dolly(1, true),
-          '-1': () => cameraControlsRef.current?.dolly(-1, true)
+          'in': () => cameraControlsRef.current?.dolly(1.2, true),
+          'our': () => cameraControlsRef.current?.dolly(-1.2, true)
         }
       }),
       moveTo: folder(
@@ -186,10 +248,16 @@ const Space = ({soundFiles, setSoundFiles, queryClient}) => {
       saveState: button(() => cameraControlsRef.current?.saveState()),
       reset: button(() => cameraControlsRef.current?.reset(true)),
     })
+    const labelStyle = {
+      color: 'black',
+      marginRight: '50%',
+      fontSize: '24px',
+      lineHeight: '2px',
+    };
     
     return (
       <>
-      <Canvas style={{ background: isDarkMode ? 'black' : 'white' }}>
+      <Canvas camera={{ position: [250, 0, 0] }} style={{ background: isDarkMode ? 'black' : 'white' }}>
         <ambientLight intensity={0.8} />
         <directionalLight />
         <pointLight position={[20, 20, 20]} />
@@ -200,10 +268,17 @@ const Space = ({soundFiles, setSoundFiles, queryClient}) => {
         {balls}
         <InterpolationLine ballsSelected={ballsSelected} allBalls={allBalls} queryClient={queryClient} generatedUrlsRef={generatedUrlsRef} isLoading={isLoading} setIsLoading={setIsLoading}/>
         <Stats />
+        {gridVisible && (
+          <>
+            <gridHelper args={[200, 200, 0xff0000, 'teal']} rotation-x={Math.PI / 2} />
+            <gridHelper args={[200, 200, 0xff0000, 'teal']} rotation-z={Math.PI / 2} />
+            <gridHelper args={[200, 200, 0xff0000, 'teal']}/>
+          </>)}
       </Canvas>
       <AddBall allBalls={allBalls} queryClient={queryClient} generatedUrlsRef={generatedUrlsRef} isLoading={isLoading} setIsLoading={setIsLoading}/>
       <FilterButton onClick={handleFilter} clearFilters={handleClearFilters} classes={classes.current}/>
       <ThemeButton isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+      <Grid toggleGrid={toggleGrid}/>
       {/* <NewBalls getNewBalls={invalidateQuery}/> */}
       <Info/>
       {isLoading && (

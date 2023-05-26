@@ -3,7 +3,7 @@
   position: fixed;
   bottom: 130px;
   right: var(--spacer3);
-  z-index: 100;
+  z-index: 999;
 }
 
 .info-button {
@@ -113,8 +113,53 @@ b {
 .list-item {
   font-size: 13px;    /* adjust for larger font size */
   line-height: 1.5;  /* adjust for more space between lines */
+
 }
 
 .list {
   padding-left: 20px; /* adjust for more space on the left */
+}
+.gif {
+  width: 90px;
+  height: 90px;
+}
+
+.icon {
+  width: 90px;
+  height: 90px;
+  margin-bottom: 20px;
+}
+.button_play1, .button_stop1 {
+  width: var(--button-pause-play-width);
+  height: calc(var(--button-pause-play-width)*4);
+  padding: 0;
+ 
+  transition: all 0.2s ease-in-out;
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.grid-item img {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 10px;
+}
+
+.grid-item p {
+  font-size: 13px;
+  font-weight: normal;
+  color: white;
+  margin-bottom: 0;
 }

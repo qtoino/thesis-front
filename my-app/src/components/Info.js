@@ -3,6 +3,24 @@ import { ReactComponent as Question } from '../assets/question.svg';
 import { ReactComponent as Left } from '../assets/left.svg';
 import { ReactComponent as Right } from '../assets/right.svg';
 import { ReactComponent as Wheel } from '../assets/wheel.svg';
+import { ReactComponent as AButton } from '../assets/a.svg';
+import { ReactComponent as SButton } from '../assets/s.svg';
+import { ReactComponent as DButton } from '../assets/d.svg';
+import { ReactComponent as QButton } from '../assets/q.svg';
+import { ReactComponent as WButton } from '../assets/w.svg';
+import { ReactComponent as EButton } from '../assets/e.svg';
+import { ReactComponent as AUp } from '../assets/arrowup.svg';
+import { ReactComponent as ADown } from '../assets/down.svg';
+import { ReactComponent as ARight } from '../assets/aright.svg';
+import { ReactComponent as ALeft } from '../assets/arrowleft.svg';
+import downImage from '../assets/down.gif';
+import upImage from '../assets/up.gif';
+import righImage from '../assets/righ.gif';
+import leftImage from '../assets/left.gif';
+import DImage from '../assets/D.gif';
+import AImage from '../assets/A.gif';
+import WImage from '../assets/W.gif';
+import SImage from '../assets/S.gif';
 import "./Info.css";
 
 function Info() {
@@ -12,7 +30,7 @@ function Info() {
     width: '30px',
     height: '30px',
   };
-
+  
   const handleInfoClick = () => {
     setShowInfo(true);
   };
@@ -22,7 +40,9 @@ function Info() {
   };
 
   return (
+
     <div className="info-container">
+      
       <button className="info-button" onClick={handleInfoClick}>
         <Question style={iconStyle}/>
       </button>
@@ -30,6 +50,88 @@ function Info() {
         <div className="info-window">
           <div className="info-content">
             <h1>SampleXplorer</h1>
+            <div className="grid-container">
+            <div className="grid-item">
+                <QButton className="icon" />
+                <button className="form_element2 button_stop1" aria-label="Stop">
+                  <svg width="14" height="14" viewBox="0 0 14 14">
+                    <rect className="button_icon_path" x="2" y="2" width="10" height="10" />
+                  </svg>
+                </button>
+                <br></br>
+                <br></br>
+              </div>
+              <div className="grid-item">
+                <WButton className="icon" />
+                <img className="gif" src={WImage} alt="W" />
+                <br></br>
+                <br></br>
+              </div>
+              <div className="grid-item">
+                <EButton className="icon" />
+                <button className="form_element2 button_play1" aria-label="Play">
+                  <svg width="14" height="14" viewBox="0 0 14 14">
+                    <rect className="button_icon_path" x="2" y="2" width="10" height="10" />
+                  </svg>
+                </button>
+                <br></br>
+                <br></br>
+              </div>
+              <div className="grid-item">
+                <AButton className="icon" />
+                <img className="gif" src={AImage} alt="A" />
+                <br></br>
+                <br></br>
+              </div>
+              <div className="grid-item">
+                <SButton className="icon" />
+                <img className="gif" src={SImage} alt="S" />
+                <br></br>
+                <br></br>
+              </div>
+              <div className="grid-item">
+                <DButton className="icon" />
+                <img className="gif" src={DImage} alt="D" />
+                <br></br>
+                <br></br>
+              </div>
+              <div className="grid-item">
+                
+                <br></br>
+                <br></br>
+              </div>
+              <div className="grid-item">
+                <AUp className="icon" />
+                <img className="gif" src={upImage} alt="Up" />
+                <br></br>
+                <br></br>
+              </div>
+              <div className="grid-item">
+                
+                <br></br>
+                <br></br>
+              </div>
+              <div className="grid-item">
+                <ALeft className="icon" />
+                <img className="gif" src={leftImage} alt="Left" />
+                <br></br>
+                <br></br>
+              </div>
+              <div className="grid-item">
+                <ADown  className="icon" />
+                <img className="gif" src={downImage} alt="Down" />
+                <br></br>
+                <br></br>
+              </div>
+              <div className="grid-item">
+                <ARight  className="icon" />
+                <img className="gif" src={righImage} alt="r" />
+                <br></br>
+                <br></br>
+              </div>
+
+            </div>
+            {/* INSERT A GRID 3X3 HERE WITH THE QWEASD SVG LIKE <Question style={iconStyle}/> AND A TEXT UNDER CENTERED */}
             <div className="topic">
               <p>Welcome to SampleXplorer, our experimental platform designed for interacting with sound packs! This user-friendly platform allows everyone, from casual users to professional artists, to explore, choose and generate samples for their music in a visually engaging environment. This guide will help you understand the various features and functionalities available within the platform.</p>
               <p>&#9940; Because the website uses a lot of audio files, it is a bit heavy and sometimes it breaks. If the "Loading audio files" message takes more than 30 seconds to disappear, try refreshing the page. In the beggining it might be a little slower or even brake but in anycase, just reload the page. To get a better experience, we advise you to use <b>Chrome</b> web browser. &#9940;</p>
