@@ -140,8 +140,8 @@ b {
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
+  grid-template-columns: repeat(6, 1fr);
+  
 }
 
 .grid-item {
@@ -152,9 +152,9 @@ b {
 }
 
 .grid-item img {
-  width: 150px;
-  height: 150px;
-  margin-bottom: 10px;
+  width: 100px;
+  height: 100px;
+  
 }
 
 .grid-item p {

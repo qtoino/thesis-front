@@ -42,7 +42,7 @@ function Info() {
   return (
 
     <div className="info-container">
-      
+
       <button className="info-button" onClick={handleInfoClick}>
         <Question style={iconStyle}/>
       </button>
@@ -50,87 +50,7 @@ function Info() {
         <div className="info-window">
           <div className="info-content">
             <h1>SampleXplorer</h1>
-            <div className="grid-container">
-            <div className="grid-item">
-                <QButton className="icon" />
-                <button className="form_element2 button_stop1" aria-label="Stop">
-                  <svg width="14" height="14" viewBox="0 0 14 14">
-                    <rect className="button_icon_path" x="2" y="2" width="10" height="10" />
-                  </svg>
-                </button>
-                <br></br>
-                <br></br>
-              </div>
-              <div className="grid-item">
-                <WButton className="icon" />
-                <img className="gif" src={WImage} alt="W" />
-                <br></br>
-                <br></br>
-              </div>
-              <div className="grid-item">
-                <EButton className="icon" />
-                <button className="form_element2 button_play1" aria-label="Play">
-                  <svg width="14" height="14" viewBox="0 0 14 14">
-                    <rect className="button_icon_path" x="2" y="2" width="10" height="10" />
-                  </svg>
-                </button>
-                <br></br>
-                <br></br>
-              </div>
-              <div className="grid-item">
-                <AButton className="icon" />
-                <img className="gif" src={AImage} alt="A" />
-                <br></br>
-                <br></br>
-              </div>
-              <div className="grid-item">
-                <SButton className="icon" />
-                <img className="gif" src={SImage} alt="S" />
-                <br></br>
-                <br></br>
-              </div>
-              <div className="grid-item">
-                <DButton className="icon" />
-                <img className="gif" src={DImage} alt="D" />
-                <br></br>
-                <br></br>
-              </div>
-              <div className="grid-item">
-                
-                <br></br>
-                <br></br>
-              </div>
-              <div className="grid-item">
-                <AUp className="icon" />
-                <img className="gif" src={upImage} alt="Up" />
-                <br></br>
-                <br></br>
-              </div>
-              <div className="grid-item">
-                
-                <br></br>
-                <br></br>
-              </div>
-              <div className="grid-item">
-                <ALeft className="icon" />
-                <img className="gif" src={leftImage} alt="Left" />
-                <br></br>
-                <br></br>
-              </div>
-              <div className="grid-item">
-                <ADown  className="icon" />
-                <img className="gif" src={downImage} alt="Down" />
-                <br></br>
-                <br></br>
-              </div>
-              <div className="grid-item">
-                <ARight  className="icon" />
-                <img className="gif" src={righImage} alt="r" />
-                <br></br>
-                <br></br>
-              </div>
-
-            </div>
+            
             {/* INSERT A GRID 3X3 HERE WITH THE QWEASD SVG LIKE <Question style={iconStyle}/> AND A TEXT UNDER CENTERED */}
             <div className="topic">
               <p>Welcome to SampleXplorer, our experimental platform designed for interacting with sound packs! This user-friendly platform allows everyone, from casual users to professional artists, to explore, choose and generate samples for their music in a visually engaging environment. This guide will help you understand the various features and functionalities available within the platform.</p>
@@ -223,6 +143,89 @@ function Info() {
                   <img src="./images/sequencer.png" style={{width: "100%", height: "auto"}}/>
               </div>
             </div>
+            <div className="grid-container">
+            <div className="grid-item">
+                <QButton className="icon" />
+                <button className="form_element2 button_stop1" aria-label="Stop">
+                  <svg width="14" height="14" viewBox="0 0 14 14">
+                    <rect className="button_icon_path" x="2" y="2" width="10" height="10" />
+                  </svg>
+                </button>
+                <br></br>
+                <br></br>
+              </div>
+              <div className="grid-item">
+                <WButton className="icon" />
+                <img className="gif" src={WImage} alt="W" />
+                <br></br>
+                <br></br>
+              </div>
+              <div className="grid-item">
+                <EButton className="icon" />
+                <button className="form_element2 button_play1" aria-label="Play">
+                  <svg width="14" height="14" viewBox="0 0 14 14">
+                    <rect className="button_icon_path" x="2" y="2" width="10" height="10" />
+                  </svg>
+                </button>
+                <br></br>
+                <br></br>
+              </div>
+              <div className="grid-item">
+                
+                <br></br>
+                <br></br>
+              </div>
+              <div className="grid-item">
+                <AUp className="icon" />
+                <img className="gif" src={upImage} alt="Up" />
+                <br></br>
+                <br></br>
+              </div>
+              <div className="grid-item">
+                
+                <br></br>
+                <br></br>
+              </div>
+              <div className="grid-item">
+                <AButton className="icon" />
+                <img className="gif" src={AImage} alt="A" />
+                <br></br>
+                <br></br>
+              </div>
+              <div className="grid-item">
+                <SButton className="icon" />
+                <img className="gif" src={SImage} alt="S" />
+                <br></br>
+                <br></br>
+              </div>
+              <div className="grid-item">
+                <DButton className="icon" />
+                <img className="gif" src={DImage} alt="D" />
+                <br></br>
+                <br></br>
+              </div>
+              
+              <div className="grid-item">
+                <ALeft className="icon" />
+                <img className="gif" src={leftImage} alt="Left" />
+                <br></br>
+                <br></br>
+              </div>
+              <div className="grid-item">
+                <ADown  className="icon" />
+                <img className="gif" src={downImage} alt="Down" />
+                <br></br>
+                <br></br>
+              </div>
+              <div className="grid-item">
+                <ARight  className="icon" />
+                <img className="gif" src={righImage} alt="r" />
+                <br></br>
+                <br></br>
+              </div>
+
+            </div>
+
             <div className="topic">
               <h2>-------TRY THESE TASKS:--------</h2>
               <p><b>1st task:</b> Use the Categories dropdown menu to pick at least 2 different categories of sounds.</p>
@@ -233,7 +236,9 @@ function Info() {
               <p><b>After completing all the 5 main tasks, please answer <a href="https://form.jotform.com/frs98/samplexplorer">this questionaire</a>.</b></p>
               <h2>-----------------------------------</h2>
             </div>
+
             <p>We hope you enjoy exploring and interacting with our platform. Happy sampling!</p>
+
             <button
               className="form_element button_close"
               onClick={handleCloseClick}
