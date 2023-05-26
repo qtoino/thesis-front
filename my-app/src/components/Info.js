@@ -143,6 +143,7 @@ function Info() {
                   <img src="./images/sequencer.png" style={{width: "100%", height: "auto"}}/>
               </div>
             </div>
+            {/*<h2>Key shortcuts</h2>
             <div className="grid-container">
             <div className="grid-item">
                 <QButton className="icon" />
@@ -222,7 +223,7 @@ function Info() {
                 <img className="gif" src={righImage} alt="r" />
                 <br></br>
                 <br></br>
-              </div>
+              </div> */}
 
             </div>
 
