@@ -223,9 +223,9 @@ function Info() {
                 <img className="gif" src={righImage} alt="r" />
                 <br></br>
                 <br></br>
-              </div> */}
+              </div> 
 
-            </div>
+            </div>*/}
 
             <div className="topic">
               <h2>-------TRY THESE TASKS:--------</h2>
