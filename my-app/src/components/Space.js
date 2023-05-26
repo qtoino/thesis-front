@@ -270,9 +270,9 @@ const Space = ({soundFiles, setSoundFiles, queryClient}) => {
         <Stats />
         {gridVisible && (
           <>
-            <gridHelper args={[200, 200, 0xff0000, 'teal']} rotation-x={Math.PI / 2} />
-            <gridHelper args={[200, 200, 0xff0000, 'teal']} rotation-z={Math.PI / 2} />
-            <gridHelper args={[200, 200, 0xff0000, 'teal']}/>
+            <gridHelper args={[300, 300, 0x37e147, 'teal']} rotation-x={Math.PI / 2} />
+            <gridHelper args={[300, 300, 0x37e147, 'teal']} rotation-z={Math.PI / 2} />
+            <gridHelper args={[300, 300, 0x37e147, 'teal']}/>
           </>)}
       </Canvas>
       <AddBall allBalls={allBalls} queryClient={queryClient} generatedUrlsRef={generatedUrlsRef} isLoading={isLoading} setIsLoading={setIsLoading}/>

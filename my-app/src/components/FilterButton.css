@@ -57,7 +57,7 @@
   }
   
   .filterButton:hover .filter-icon {
-    fill: #0062cc;
+    fill: #008080;
   }
   
   .filter-icon {
@@ -135,5 +135,5 @@
   }
   
   .buttonClear:hover {
-    background-color: #0062cc;
+    background-color: #008080;
   }
