@@ -48,6 +48,8 @@ const Track = ({
             <header className="track_title">{title}</header>
             <main className="track_notes">
                 {notes}
+                
+
             </main>
             <input type="range" orient="vertical" min="0" max="200" value={rangeAudio} ref={rangeAudioRef} onChange={() => handleSlider(rangeAudioRef.current.value)}/>
         </div>

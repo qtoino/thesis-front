@@ -16,7 +16,7 @@ function App() {
 
   const baseBPMPerOneSecond = 60
   const stepsPerBar = 16
-  const beatsPerBar = 4
+  const beatsPerBar = 8
   const barsPerSequence = 1
   const totalSteps = stepsPerBar * barsPerSequence
   const totalBeats = beatsPerBar * barsPerSequence
@@ -104,6 +104,7 @@ function App() {
                 <div className="app_content">
                     <PlayHead {...playHeadProps} />
                     <TrackList {...trackListProps} />
+                    
                 </div>
                 <div className="app_controls">
                     <ToolBar {...toolBarProps} />

@@ -66,7 +66,7 @@ const generateNewSound = async (clickedPosition, ballsSelected, queryClient, set
     // Send data to the backend via POST
     setIsLoading(true);
     try{
-        const res = await fetch('https://thesis-production-0069.up.railway.app/interpole', {  // Enter your IP address here
+        const res = await fetch('http://0.0.0.0:8000/interpole', {  // Enter your IP address here
             method: 'POST', 
             headers: {
                 Accept: 'application/json',
@@ -115,7 +115,7 @@ const generateNewSound = async (clickedPosition, ballsSelected, queryClient, set
 const insertDatabase = async (newPosition, audioName, audioURL, queryClient) => {
     // Send data to the backend via POST
     try{
-        const res = await fetch('https://thesis-production-0069.up.railway.app/addpath', {  // Enter your IP address here
+        const res = await fetch('http://0.0.0.0:8000/addpath', {  // Enter your IP address here
             method: 'POST', 
             headers: {
                 Accept: 'application/json',
