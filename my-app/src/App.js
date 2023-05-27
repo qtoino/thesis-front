@@ -16,7 +16,7 @@ function App() {
 
   const baseBPMPerOneSecond = 60
   const stepsPerBar = 16
-  const beatsPerBar = 8
+  const beatsPerBar = 4
   const barsPerSequence = 1
   const totalSteps = stepsPerBar * barsPerSequence
   const totalBeats = beatsPerBar * barsPerSequence
