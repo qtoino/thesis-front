@@ -99,12 +99,6 @@ function App() {
                 <Space {...spaceProps} />
             </div>
             <main className="app track">
-            
-                <div className="app_content">
-                    <PlayHead {...playHeadProps} />
-                    <TrackList {...trackListProps} />
-                    
-                </div>
                 <div className="color-subtitle-container">
                   <div className="color-subtitle">
                     <div className="color-column">
@@ -131,9 +125,16 @@ function App() {
                     </div>
                   </div>
                  </div> 
+                <div className="app_content">
+                    <PlayHead {...playHeadProps} />
+                    <TrackList {...trackListProps} />
+                    
+                </div>
                 <div className="app_controls">
                     <ToolBar {...toolBarProps} />
                 </div>
+                
+                
                     
             </main >
           </div>
