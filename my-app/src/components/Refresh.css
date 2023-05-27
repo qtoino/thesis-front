@@ -1,0 +1,29 @@
+.refresh-button {
+  position: absolute;
+  bottom: 3%;
+  right: 130px; /* Updated to 40 pixels */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #ff0000bd;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+  z-index: 150;
+}
+
+.refresh-button:hover {
+  background-color: #ff0000;
+}
+
+.theme-svg {
+  width: 24px;
+  height: 24px;
+}

@@ -12,6 +12,8 @@ import FilterButton from './FilterButton'
 import ThemeButton from './ThemeButton'
 import Info from './Info'
 import Grid from './Grid'
+import Refresh from './Refresh'
+import NewBalls from './NewBalls'
 
 const { DEG2RAD } = THREE.MathUtils
 
@@ -38,6 +40,8 @@ const Space = ({soundFiles, setSoundFiles, queryClient}) => {
     const classes = useRef(["favorites"])
 
     const [isLoading, setIsLoading] = useState(true);
+
+    const [ballInfront, setBallInfront] = useState(false);
 
     const {data, status} = useQuery('id', loadSoundFiles)
 
@@ -254,6 +258,18 @@ const Space = ({soundFiles, setSoundFiles, queryClient}) => {
       fontSize: '24px',
       lineHeight: '2px',
     };
+
+    useEffect(() => {
+      if (ballInfront) {
+        const timer = setTimeout(() => {
+          setBallInfront(false);
+        }, 5000);
+    
+        // Clean up the timer on unmount or if ballInfront changes before the timer finishes
+        return () => clearTimeout(timer);
+      }
+    }, [ballInfront]);
+    
     
     return (
       <>
@@ -266,7 +282,7 @@ const Space = ({soundFiles, setSoundFiles, queryClient}) => {
           ref={cameraControlsRef}
         />
         {balls}
-        <InterpolationLine ballsSelected={ballsSelected} allBalls={allBalls} queryClient={queryClient} generatedUrlsRef={generatedUrlsRef} isLoading={isLoading} setIsLoading={setIsLoading}/>
+        <InterpolationLine ballsSelected={ballsSelected} allBalls={allBalls} queryClient={queryClient} generatedUrlsRef={generatedUrlsRef} isLoading={isLoading} setIsLoading={setIsLoading} setBallInfront={setBallInfront}/>
         <Stats />
         {gridVisible && (
           <>
@@ -275,10 +291,12 @@ const Space = ({soundFiles, setSoundFiles, queryClient}) => {
             <gridHelper args={[300, 300, 0x37e147, 'teal']}/>
           </>)}
       </Canvas>
-      <AddBall allBalls={allBalls} queryClient={queryClient} generatedUrlsRef={generatedUrlsRef} isLoading={isLoading} setIsLoading={setIsLoading}/>
+      <AddBall allBalls={allBalls} queryClient={queryClient} generatedUrlsRef={generatedUrlsRef} isLoading={isLoading} setIsLoading={setIsLoading} setBallInfront={setBallInfront}/>
       <FilterButton onClick={handleFilter} clearFilters={handleClearFilters} classes={classes.current}/>
       <ThemeButton isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
       <Grid toggleGrid={toggleGrid}/>
+      <Refresh setIsLoading={setIsLoading} queryClient={queryClient} isLoading={isLoading}/>
+      <NewBalls setIsLoading={setIsLoading} queryClient={queryClient} isLoading={isLoading}/>
       {/* <NewBalls getNewBalls={invalidateQuery}/> */}
       <Info/>
       {isLoading && (
@@ -298,7 +316,23 @@ const Space = ({soundFiles, setSoundFiles, queryClient}) => {
         Loading wav files...
       </div>
       )}
-
+      {ballInfront && (
+      <div 
+        style={{
+          position: 'fixed', 
+          top: '40%', 
+          left: '50%', 
+          transform: 'translate(-50%, -50%)', 
+          zIndex: 100, 
+          background: 'rgba(256, 0, 0, 0.8)', 
+          color: 'white', 
+          padding: '20px', 
+          borderRadius: '10px'
+        }}
+      >
+        Ball already in that place...
+      </div>
+      )}
       </>
     )
 }
@@ -324,13 +358,6 @@ const loadFavSoundFiles = async () => {
   return data
 };
 
-function NewBalls({ getNewBalls }) {
-  return (
-    <button onClick={getNewBalls}>
-      Get New Balls
-    </button>
-  );
-}
 
 const getURLleft = async (soundname) => {
   // Send data to the backend via POST
@@ -371,3 +398,4 @@ const getURLleft = async (soundname) => {
       return e;
   } 
 };
+

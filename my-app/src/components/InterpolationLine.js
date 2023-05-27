@@ -4,7 +4,7 @@ import * as THREE from 'three';
 import Ball from './Ball'
 import useSound from '../hooks/useTone'
 
-const InterpolationLine = ({ ballsSelected, allBalls, queryClient, generatedUrlsRef, isLoading, setIsLoading}) => {
+const InterpolationLine = ({ ballsSelected, allBalls, queryClient, generatedUrlsRef, isLoading, setIsLoading, setBallInfront}) => {
     
     const radius = 1.4
 
@@ -26,6 +26,7 @@ const InterpolationLine = ({ ballsSelected, allBalls, queryClient, generatedUrls
         // Check if the closest ball is in front of the line
         if (closestDistance < radius) {
             console.log('Ball is in front of line, not creating new ball');
+            setBallInfront(true)
             return;
         }
         else {

@@ -10,7 +10,7 @@ const TrackList = ({ currentStepID, soundFiles, fftNode}) => {
         let soundFilePath = soundFiles[soundFile]
         
         let title = soundFilePath
-        if (soundFilePath.startsWith("GS_")) {
+        if (soundFilePath.startsWith("INT_") || soundFilePath.startsWith("AB_")) {
             // Split soundFilePath at ".wav"
             let parts = soundFilePath.split(".wav");
 
