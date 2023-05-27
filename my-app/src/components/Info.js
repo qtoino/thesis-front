@@ -21,6 +21,8 @@ import DImage from '../assets/D.gif';
 import AImage from '../assets/A.gif';
 import WImage from '../assets/W.gif';
 import SImage from '../assets/S.gif';
+import Zoom from '../assets/zoom.gif';
+import MRigh from '../assets/rightmouse.gif';
 import "./Info.css";
 
 function Info() {
@@ -94,6 +96,32 @@ function Info() {
               <h2>Camera Controls</h2>
               <div className="topic-wrapper">
                 <p>The camera controls are simple but you need to get used to them so try to mess with them in the beggining.</p>
+                <div className="grid-container2">
+                <div className="grid-item">
+                    <Left className="topic-svg"/> 
+                    <br></br>
+                    <br></br> 
+                    <img className="gif" src={AImage} alt="W" />
+                    <br></br>
+                    <br></br>
+                  </div>
+                  <div className="grid-item">
+                    <Wheel className="topic-svg"/>
+                    <br></br>
+                    <br></br>
+                    <img className="gif" src={Zoom} alt="W" />
+                    <br></br>
+                    <br></br>
+                  </div>
+                  <div className="grid-item">
+                    <Right className="topic-svg"/>
+                    <br></br>
+                    <br></br>
+                    <img className="gif" src={MRigh} alt="W" />
+                    <br></br>
+                    <br></br>
+                  </div>
+                </div>
                 <p>
                     <Left className="topic-svg"/> 
                     Left click and drag: Rotate the camera around the target point.</p>

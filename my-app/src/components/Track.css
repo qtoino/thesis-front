@@ -4,6 +4,11 @@
     flex-direction: row;
   }
 
+  .track-column {
+    display: flex;
+    flex-direction: column;
+  }
+
   .track_title {
     display: flex;
     flex: 0 0 auto;
@@ -20,6 +25,10 @@
     display: flex;
   }
 
+  .volume {
+    display: flex;
+  }
+
   input[type=range][orient=vertical]
   {
       writing-mode: bt-lr; /* IE */
@@ -30,7 +39,7 @@
   }
 
   /* Hide the Track component when the window width is less than 800 pixels */
-  @media (max-width: 1050px) {
+  @media (max-width: 1185px) {
     .track_notes {
       display: none;
     }

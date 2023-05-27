@@ -104,6 +104,7 @@ function App() {
                 <div className="app_content">
                     <PlayHead {...playHeadProps} />
                     <TrackList {...trackListProps} />
+                    
                 </div>
                 <div className="app_controls">
                     <ToolBar {...toolBarProps} />

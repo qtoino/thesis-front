@@ -74,8 +74,8 @@
 }
 
 .topic-svg {
-  width: 30px;
-  height: 30px;
+  width: 70px;
+  height: 70px;
   margin-right: 10px;
   vertical-align: middle
 }
@@ -137,6 +137,11 @@ b {
   transition: all 0.2s ease-in-out;
 }
 
+.grid-container2 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  
+}
 
 .grid-container {
   display: grid;
