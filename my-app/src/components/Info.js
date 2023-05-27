@@ -152,7 +152,7 @@ function Info() {
               <h2>Functional Buttons</h2>
               <p>On the bottom-left of the canvas, the <b>Categories Search Bar</b> displays the balls based on the respective category selected.</p>
               <div style={{display: "flex", justifyContent: "space-evenly"}}>
-                  <img src="./images/filter.png" style={{width: "57%", height: "auto"}}/>
+                  <img src="./images/filter1.png" style={{width: "35%", height: "auto"}}/>
               </div>
               <br></br>
               <br></br>

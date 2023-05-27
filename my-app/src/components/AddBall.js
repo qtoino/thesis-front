@@ -1,78 +1,74 @@
-import React, { useState, memo } from "react";
+import React, { useCallback, useState, memo } from "react";
 import * as THREE from 'three';
 import Ball from './Ball'
 import "./AddBall.css"
 
-function AddBall({allBalls, queryClient, generatedUrlsRef, isLoading, setIsLoading}) {
-  const [x, setX] = useState(0);
-  const [y, setY] = useState(0);
-  const [z, setZ] = useState(0);
+function AddBall({allBalls, queryClient, generatedUrlsRef, isLoading, setIsLoading, setBallInfront}) {
+  const [coordinates, setCoordinates] = useState({ x: 0, y: 0, z: 0 });
 
-  function handleXChange(event) {
-    setX(parseFloat(event.target.value));
-  }
+  const handleInputChange = (event) => {
+    setCoordinates({ ...coordinates, [event.target.name]: parseFloat(event.target.value) });
+  };
 
-  function handleYChange(event) {
-    setY(parseFloat(event.target.value));
-  }
-
-  function handleZChange(event) {
-    setZ(parseFloat(event.target.value));
-  }
-
-  async function handleAddBall(){
-
-    // Block the function if isLoading is true
+  const handleAddBall = useCallback(async () => {
     if (isLoading) {
       console.log("wait for the generated audio")
       return;
     }
     
     const radius = 1.4
-
-    const point = new THREE.Vector3(...[x, y, z])
-    const newPosition = [x, y, z];
+    const { x, y, z } = coordinates;
+    const point = new THREE.Vector3(x, y, z)
     
     const distances = allBalls.current.map(p => point.distanceTo(new THREE.Vector3(...p)));
     const closestIndex = distances.indexOf(Math.min(...distances));
     const closestDistance = distances[closestIndex];
     
-    // Check if the closest ball is in front of the line
     if (closestDistance < radius) {
         console.log('Ball is in front of line, not creating new ball');
+        setBallInfront(true)
         return;
-    }
-    else {
-        const {name, url} = await generateNewSound(newPosition, queryClient, setIsLoading)
-        // console.log(data)
-        
-        const sound = {
-          name: name,
-          url: url
-        }
+    } else {
+        try {
+            const {name, url} = await generateNewSound([x, y, z], queryClient, setIsLoading);
+            
+            const sound = {
+              name,
+              url
+            }
 
-        // Add the new URL to the ref
-        generatedUrlsRef.current.push(sound);
-        queryClient.invalidateQueries('id', { refetchActive: true })
-        // const aux = await insertDatabase(newPosition, name, url, queryClient)
+            generatedUrlsRef.current.push(sound);
+            queryClient.invalidateQueries('id', { refetchActive: true });
+            // const aux = await insertDatabase([x, y, z], name, url, queryClient);
+        } catch (error) {
+            console.error('An error occurred:', error);
+        }
     }
-  }
+  }, [coordinates, isLoading]);
 
   return (
     <>
         <div className="coordinates">
           <div className="inputs">
-            <input type="number" id="x" name="x" step="any" value={x} onChange={handleXChange} required />
-
-            <input type="number" id="y" name="y" step="any" value={y} onChange={handleYChange} required />
-
-            <input type="number" id="z" name="z" step="any" value={z} onChange={handleZChange} required />
+            {['x', 'y', 'z'].map((coord) => (
+                <input 
+                    key={coord}
+                    type="number"
+                    id={coord}
+                    name={coord}
+                    step="any"
+                    value={coordinates[coord]}
+                    onChange={handleInputChange}
+                    required
+                />
+            ))}
           </div>  
           <button className="buttonAdd" onClick={handleAddBall}>Add Ball</button>
         </div>
     </>
   );
 }
+
 
 export default memo(AddBall);
 

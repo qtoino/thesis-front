@@ -100,6 +100,7 @@ function App() {
             </div>
             <main className="app track">
             
+            
                
                 <div className="app_content">
                     <PlayHead {...playHeadProps} />
