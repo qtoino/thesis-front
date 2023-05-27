@@ -25,6 +25,7 @@ function Refresh({ setIsLoading, queryClient, isLoading}) {
     }, [isLoading]);
 
     return (
+
         <button className="refresh-button" onClick={handleRefresh}>
             <RemoveIcon style={iconStyle} />
         </button>
@@ -51,3 +52,5 @@ const deleteGeneratedSounds = async () => {
       console.error('Error deleting generated sounds:', error);
     }
   }
+
+  

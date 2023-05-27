@@ -39,7 +39,7 @@
   }
 
   /* Hide the Track component when the window width is less than 800 pixels */
-  @media (max-width: 1185px) {
+  @media (max-width: 1050px) {
     .track_notes {
       display: none;
     }

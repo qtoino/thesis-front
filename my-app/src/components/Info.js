@@ -51,12 +51,15 @@ function Info() {
       {showInfo && (
         <div className="info-window">
           <div className="info-content">
-            <h1>SampleXplorer</h1>
+
             
-            {/* INSERT A GRID 3X3 HERE WITH THE QWEASD SVG LIKE <Question style={iconStyle}/> AND A TEXT UNDER CENTERED */}
+            <div className="topic">
+              <img src="./images/logo_original1.png" alt="SampleXplorer Logo" style={{display: "inline", width: "180px", height: "100px"}}/>
+              <h1>SampleXplorer</h1> 
+            </div>
             <div className="topic">
               <p>Welcome to SampleXplorer, our experimental platform designed for interacting with sound packs! This user-friendly platform allows everyone, from casual users to professional artists, to explore, choose and generate samples for their music in a visually engaging environment. This guide will help you understand the various features and functionalities available within the platform.</p>
-              <p>&#9940; Because the website uses a lot of audio files, it is a bit heavy and sometimes it breaks. If the "Loading audio files" message takes more than 30 seconds to disappear, try refreshing the page. In the beggining it might be a little slower or even brake but in anycase, just reload the page. To get a better experience, we advise you to use <b>Chrome</b> web browser. &#9940;</p>
+              <p>&#9940; Because the website uses a lot of audio files, it advised to have a GPU. If the "Loading audio files" message takes more than 30 seconds to disappear, try refreshing the page. In the beggining it might be a little slower or even brake but in anycase, just reload the page. To get a better experience, we advise you to use <b>Chrome</b> web browser. &#9940;</p>
               <p>&#9940; <b>READ THIS MANUAL CAREFULLY AND PLEASE ANSWER THE EVALUATION FORM BELOW.</b> &#9940;</p>
             </div>
             <div className="topic">
@@ -73,13 +76,13 @@ function Info() {
                 <h2>Interaction with Balls</h2>
                 <p>
                     <Left className="topic-svg"/>
-                    Left click: Allows you to play the sound. You can also send the sound to one of the tracks at the bottom of the interface by clicking one of its corresponding number (1,2,3 or 4). When you click the number of the track, it does not change the name right away, but the sound is there. &#128540;</p>
+                    Left click: Allows you to <b>play</b> the sound. You can also send the sound to one of the tracks at the bottom of the interface by <b>clicking</b> one of its corresponding number <b>[1][2][3][4]</b>. When you click the number of the track, it does not change the name right away, but the sound is there. &#128540;</p>
                 <div style={{display: "flex", justifyContent: "space-evenly"}}>
                   <img src="./images/playermenu.png" style={{width: "45%", height: "auto"}}/>
                 </div>
                 <p>
                     <Right className="topic-svg"/>
-                    Right click: Allows you to add or remove a sound from your favorites list, delete the ball from the interface, or download the sound.</p>     
+                    Right click: Allows you to add or remove a sound from your <b>favorites</b> list, <b>delete</b> the ball from the interface, or <b>download</b> the sound.</p>     
                 <div style={{display: "flex", justifyContent: "space-evenly"}}>
                   <img src="./images/contectmenu.png" style={{width: "70%", height: "auto"}}/>
                 </div>
@@ -87,7 +90,7 @@ function Info() {
             </div>
             <div className="topic">
               <h2>BIL (Big Interpolation Line)</h2>
-              <p>When two balls are selected, an interpolation line is formed between them. By clicking on the line, you can generate a new ball/sound mixing the two selected sounds. Don't worry if don't see the new sound right away, either it's being generated or it's just behind BIL. Try to rotate the camera to see if it's there. &#128513; </p>
+              <p>When two balls are selected, an interpolation line is formed between them. By <b>clicking on the line</b>, you can generate a new ball/sound <b>mixing</b> the two selected sounds. Don't worry if don't see the new sound right away, either it's being generated or it's just behind BIL. Try to rotate the camera to see if it's there. &#128513; </p>
               <div style={{display: "flex", justifyContent: "space-evenly"}}>
                   <img src="./images/bil.png" style={{width: "75%", height: "auto"}}/>
               </div>
@@ -101,7 +104,7 @@ function Info() {
                     <Left className="topic-svg"/> 
                     <br></br>
                     <br></br> 
-                    <img className="gif" src={AImage} alt="W" />
+                    <img className="biggif" src={AImage} alt="AI" />
                     <br></br>
                     <br></br>
                   </div>
@@ -109,7 +112,7 @@ function Info() {
                     <Wheel className="topic-svg"/>
                     <br></br>
                     <br></br>
-                    <img className="gif" src={Zoom} alt="W" />
+                    <img className="biggif" src={Zoom} alt="ZOOM" />
                     <br></br>
                     <br></br>
                   </div>
@@ -117,20 +120,20 @@ function Info() {
                     <Right className="topic-svg"/>
                     <br></br>
                     <br></br>
-                    <img className="gif" src={MRigh} alt="W" />
+                    <img className="biggif" src={MRigh} alt="MRIGHT" />
                     <br></br>
                     <br></br>
                   </div>
                 </div>
                 <p>
                     <Left className="topic-svg"/> 
-                    Left click and drag: Rotate the camera around the target point.</p>
+                    Left click and drag: <b>Rotate</b> the camera around the target point.</p>
                 <p>
                     <Wheel className="topic-svg"/>
-                    Scroll the wheel: Zoom in and out.</p>              
+                    Scroll the wheel: <b>Zoom</b> in and out.</p>              
                 <p>
                     <Right className="topic-svg"/>
-                    Right click and drag: Pan the camera in the plane perpendicular to its direction.</p>    
+                    Right click and drag: <b>Pan</b> the camera in the plane perpendicular to its direction.</p>    
                 <h2>Other Camera Controls</h2>
                 <div className="topic-wrapper">
                   <p>There are additional camera controls available on the top-right corner of the screen such as:</p>
@@ -166,7 +169,9 @@ function Info() {
             <div className="topic">
               <h2>Step Sequencer</h2>
               <p>Located at the bottom section of the interface, is the step sequencer. 
-              You can costumize the rhythmic pattern as you wish by clicking the rectangles and the volume of the track by moving the slider next to it. The sequencer includes controls to play/stop the sequence, adjust the BPM, and load preset rhythms. You can hear the sounds that you selected previously in the 1-4 ball options. On the bottom-right is the <b>Theme</b> and <b>Instructions</b> buttons that are responsible for toggling the background color and opening the current instructions panel.</p>
+              You can costumize the rhythmic pattern as you wish by clicking the rectangles and the volume of the track by moving the slider next to it. The sequencer includes controls to play/stop the sequence, adjust the BPM, and load preset rhythms. You can hear the sounds that you selected previously in the 1-4 ball options.</p>
+              <p>On the bottom-right is the <b>Theme</b>, <b>Grid</b> and <b>Instructions</b> buttons that are responsible for toggling the background color, toggling the auxiliary grid and opening the current instructions panel.</p>
+              <p>There is also the <blue>blue</blue> button and <red>red</red> buttons that <blue>refresh</blue> the balls that are displayed on the screen and <red>delete</red> all the generated balls respectively.</p> 
               <div style={{display: "flex", justifyContent: "space-evenly"}}>
                   <img src="./images/sequencer.png" style={{width: "100%", height: "auto"}}/>
               </div>

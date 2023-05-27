@@ -49,10 +49,11 @@
 }
 
 .info-content h1 {
-  font-size: 24px;
+  font-size:80px;
   font-weight: bold;
   color: white;
   margin-bottom: 20px;
+  display: inline;
 }
 
 .info-content h2 {
@@ -107,7 +108,24 @@ b {
   text-shadow: 1px 0px 0px #000; /* the textcolor */
   padding-right: 1px;
   letter-spacing: 1px;
-  font-weight: bold
+  font-weight: bold;
+  font-size:large
+}
+
+red {
+  text-shadow: 1px 0px 0px #000; /* the textcolor */
+  padding-right: 1px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: rgb(255, 0, 0)
+}
+
+blue {
+  text-shadow: 1px 0px 0px #000; /* the textcolor */
+  padding-right: 1px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: rgb(0, 0, 255)
 }
 
 .list-item {
@@ -122,6 +140,11 @@ b {
 .gif {
   width: 90px;
   height: 90px;
+}
+
+.biggif {
+  width: 20px;
+  height: 20px;
 }
 
 .icon {
