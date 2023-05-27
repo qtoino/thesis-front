@@ -14,7 +14,7 @@ const Track = ({
     fftNode
 }) => {
     //const audioContext = useAudioContext();
-    //console.log(soundFilePath)
+    console.log(soundFilePath)
     const [play, stop, handleVolumeChange] = useSound(soundFilePath, fftNode)
 
     const rangeAudioRef = useRef(null);

@@ -100,13 +100,37 @@ function App() {
             </div>
             <main className="app track">
             
-            
-               
                 <div className="app_content">
                     <PlayHead {...playHeadProps} />
                     <TrackList {...trackListProps} />
                     
                 </div>
+                <div className="color-subtitle-container">
+                  <div className="color-subtitle">
+                    <div className="color-column">
+                      <p><b>Categories:</b></p>
+                      <p><span className="purple">#9c27b0</span> bongo</p>
+                      <p><span className="pink">#fd5b78</span> claps</p>
+                      <p><span className="orange">#ff6037</span> clicks</p>
+                      <p><span className="yellow">#ffff66</span> crash</p>
+                      <p><span className="pink-purple">#ff00cc</span> fx</p>
+                      <p><span className="red">#ff0000</span> generated</p>
+                      <p><span className="light-orange">#ff9966</span> hihat</p>
+                      <p><span className="lime-green">#ccff00</span> kick</p>
+                      </div>
+                    <div className="color-column">
+                      <p><span className="gray">#808080</span> others</p>
+                      <p><span className="dark-orange">#ff9933</span> perc</p>
+                      <p><span className="light-orange">#ffcc33</span> percussive</p>
+                      <p><span className="light-green">#66ff66</span> rides</p>
+                      <p><span className="light-blue">#aaf0d1</span> shaker</p>
+                      <p><span className="pinkish-red">#ff355e</span> snares</p>
+                      <p><span className="cyan">#16d0cb</span> synth</p>
+                      <p><span className="light-blue">#50bfe6</span> tom</p>
+                      <p><span className="pinkish-purple">#ee34d2</span> tribal</p>
+                    </div>
+                  </div>
+                 </div> 
                 <div className="app_controls">
                     <ToolBar {...toolBarProps} />
                 </div>

@@ -122,6 +122,7 @@ const Space = ({soundFiles, setSoundFiles, queryClient}) => {
             // push the color to the classes array only if it hasn't been added already
             if (!classes.current.includes(object.class)) {
               classes.current = [...classes.current, object.class];
+              classes.current.sort(); // This will sort the classes alphabetically
             }
     
             let path2audio;

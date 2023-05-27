@@ -55,7 +55,7 @@ const ToolBar = ({
 
   return (
     
-
+    
     <div className="super-parent">
       <p>Rhythmic presets:</p>
       <select

@@ -96,3 +96,102 @@ html {
     transform: translateX(-100%);
   }
 }
+
+
+
+
+
+.color-subtitle-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+}
+
+@media (max-width: 1300px) {
+  .color-subtitle-container {
+    display: none;
+  }
+}
+
+.color-subtitle {
+  display: flex;
+  text-align: left;
+  font-size: 12px;
+  line-height: 1.5;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.color-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.color-subtitle p {
+
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.purple {
+  color: #9c27b0;
+}
+
+.pink {
+  color: #fd5b78;
+}
+
+.orange {
+  color: #ff6037;
+}
+
+.yellow {
+  color: #ffff66;
+}
+
+.pink-purple {
+  color: #ff00cc;
+}
+
+.red {
+  color: #ff0000;
+}
+
+.light-orange {
+  color: #ff9966;
+}
+
+.lime-green {
+  color: #ccff00;
+}
+
+.gray {
+  color: #808080;
+}
+
+.dark-orange {
+  color: #ff9933;
+}
+
+.light-green {
+  color: #66ff66;
+}
+
+.light-blue {
+  color: #aaf0d1;
+}
+
+.pinkish-red {
+  color: #ff355e;
+}
+
+.cyan {
+  color: #16d0cb;
+}
+
+.pinkish-purple {
+  color: #ee34d2;
+}

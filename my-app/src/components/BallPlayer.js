@@ -8,13 +8,15 @@ const BallPlayer = ({ audio, path, position, soundFiles, setSoundFiles, play, st
     const [isPlaying, setIsPlaying] = useState(true);
     let audioSrc
     //console.log(soundFiles.current)
-    if (audio.startsWith("INT_") || audio.startsWith("AB_")) {
-	    audioSrc = audio + path;
-        console.log(path)
-    }
-    else{
-        audioSrc = path + audio;
-    }
+    // if (audio.startsWith("INT_") || audio.startsWith("AB_")) {
+	//     audioSrc = audio + path;
+        
+    // }
+    // else{
+    //     audioSrc = path + audio;
+        
+    // }
+    audioSrc = path + audio;
 
     const buttons = [1, 2, 3, 4].map(i => (
         <button className='buttonChannel' onClick={() => handleClick(i)} key={i}>{i}</button>
@@ -49,7 +51,7 @@ const BallPlayer = ({ audio, path, position, soundFiles, setSoundFiles, play, st
                     <div className="track-info">
                         <h2 className="title">{audio}</h2>
                         {buttons}
-                        <h2>[{(position[0]-0.7).toFixed(1)} {(position[1]-2).toFixed(1)} {(position[2]-0).toFixed(1)}]</h2>
+                        <h2>[{(position[0]-5).toFixed(1)} {(position[1]-8).toFixed(1)} {(position[2]-0).toFixed(1)}]</h2>
                     </div>
                     <BallPlayerCtrl isPlaying={isPlaying} onPlayPauseClick={onPlayPauseClick}/>
                 </div>

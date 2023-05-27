@@ -19,6 +19,8 @@ const TrackList = ({ currentStepID, soundFiles, fftNode}) => {
 
             // Combine the second part with ".wav" to get the updated soundFilePath
             soundFilePath = parts[1];
+            console.log("soundFilePath")
+            console.log(soundFilePath)
         }
         else{
             title = title.split("/").pop().split(".")[0]
