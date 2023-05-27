@@ -52,7 +52,7 @@ const InterpolationLine = ({ ballsSelected, allBalls, queryClient, generatedUrls
         {ballsSelected.length >= 2 && <Line
             points={ballsSelected.map(p => new THREE.Vector3(...p))}
             color="burlywood"
-            lineWidth={200}
+            lineWidth={195}
             onClick={onClick}
             transparent={true}
         />}
