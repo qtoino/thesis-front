@@ -58,13 +58,13 @@ function Info() {
               <h1>SampleXplorer</h1> 
             </div>
             <div className="topic">
-              <p>Welcome to SampleXplorer, our experimental platform designed for interacting with sound packs! This user-friendly platform allows everyone, from casual users to professional artists, to explore, choose and generate samples for their music in a visually engaging environment. This guide will help you understand the various features and functionalities available within the platform.</p>
+              <p>Welcome to SampleXplorer, our experimental platform designed for <b>playing</b> and <b>sharing</b> sounds! This user-friendly platform allows everyone, from casual users to professional artists, to explore, choose and generate sound samples for their music in a visually engaging environment. The generated sounds are shared in the platform with all the other users online.</p>
               <p>&#9940; Because the website uses a lot of audio files, it advised to have a GPU. If the "Loading audio files" message takes more than 30 seconds to disappear, try refreshing the page. In the beggining it might be a little slower or even brake but in anycase, just reload the page. To get a better experience, we advise you to use <b>Chrome</b> web browser. &#9940;</p>
               <p>&#9940; <b>READ THIS MANUAL CAREFULLY AND PLEASE ANSWER THE EVALUATION FORM BELOW.</b> &#9940;</p>
             </div>
             <div className="topic">
               <h2>Sample Packs</h2>
-              <p>Currently, our platform hosts a model that was trained on two sample packs: Vengeance Essential House Vol. 1 and Vengeance Analog Drums Vol. 1.</p>
+              <p>Currently, our platform hosts a <b>deep learning model</b> that was trained on two sample packs: Vengeance Essential House Vol. 1 and Vengeance Analog Drums Vol. 1.</p>
               <div style={{display: "flex", justifyContent: "space-evenly"}}>
                 <img src="./images/Vengeance-Essential-House-Vol.1.png" style={{width: "45%", height: "auto"}}/>
                 <img src="./images/vengeance-analog-drums.jpeg" style={{width: "45%", height: "auto"}}/>
@@ -266,7 +266,7 @@ function Info() {
               <p><b>2th task:</b> Generate a new sound with BIL.</p>
               <p><b>3rd task:</b> Generate a new sound with Add Ball Button.</p>
               <p><b>4th task:</b> Try a different rhythmic pattern.</p>
-              <p><b>5th task:</b> Costumize your rhythm pattern as you like. Add at least 2 different ball sounds to the step sequencer.</p>
+              <p><b>5th task:</b> Add at least 2 different ball sounds to the step sequencer.</p>
               <p><b>After completing all the 5 main tasks, please answer <a href="https://form.jotform.com/frs98/samplexplorer">this questionaire</a>.</b></p>
               <h2>-----------------------------------</h2>
             </div>
