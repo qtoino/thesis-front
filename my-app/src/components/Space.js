@@ -274,10 +274,10 @@ const Space = ({soundFiles, setSoundFiles, queryClient}) => {
     
     return (
       <>
-      <Canvas camera={{ position: [250, 0, 0] }} style={{ background: isDarkMode ? 'black' : 'white' }}>
+      <Canvas camera={{ position: [250, 0, 0] }} style={{ background: isDarkMode ? 'black' : '#f7f2e3' }}>
         <ambientLight intensity={0.8} />
-        <directionalLight />
-        <pointLight position={[20, 20, 20]} />
+        
+        
         <OrbitControls />
         <CameraControls
           ref={cameraControlsRef}
