@@ -274,7 +274,7 @@ const Space = ({soundFiles, setSoundFiles, queryClient}) => {
     
     return (
       <>
-      <Canvas camera={{ position: [250, 0, 0] }} style={{ background: isDarkMode ? 'black' : '#f7f2e3' }}>
+      <Canvas camera={{ position: [250, 0, 0] }} style={{ background: isDarkMode ? 'black' : '#fdfbf7' }}>
         <ambientLight intensity={0.8} />
         
         

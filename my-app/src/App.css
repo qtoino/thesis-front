@@ -108,7 +108,7 @@ html {
   width: 300px;
 }
 
-@media (max-width: 130px) {
+@media (max-width: 1300px) {
   .color-subtitle-container {
     display: none;
   }

@@ -197,8 +197,13 @@ function Info() {
               <div className="grid-item">
                 <EButton className="icon" />
                 <button className="form_element2 button_play1" aria-label="Play">
-                  <svg width="14" height="14" viewBox="0 0 14 14">
-                    <rect className="button_icon_path" x="2" y="2" width="10" height="10" />
+                  <svg width="14" height="14" viewBox="8 8 20 20">
+                    <path
+                      className="button_icon_path"
+                      id="play-icon"
+                      data-state="paused"
+                      d="M11,10 L18,13.74 18,22.28 11,26 M18,13.74 L26,18 26,18 18,22.28"
+                    />
                   </svg>
                 </button>
                 <br></br>
